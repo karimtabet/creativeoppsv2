@@ -1,0 +1,315 @@
+/* * * * * * * * * * * * * * * * * * * * *
+* Stylesheet divided into 6 headings:     *
+*   - Global and Nav                      *
+*   - Wrappers and BG Images              *
+*   - Modals and Carousels                *
+*   - Home Page                           *
+*   - Projects Page                       *
+*   - Contact Page                        *
+* * * * * * * * * * * * * * * * * * * * * /
+
+/* * * * * * * * * * * * * * Global and Nav * * * * * * * * * * * * * */
+
+html, body,
+#content, #content section {
+    text-align: center;
+}
+section h2 {
+    padding-right: 8%;
+    padding-left: 8%;
+}
+#projects_wrapper, #contact_wrapper, #modal_video_container iframe {
+    -webkit-box-shadow: 0px 0px 10px 5px #888888;
+    -moz-box-shadow: 0px 0px 10px 5px #888888;
+    box-shadow: 0px 0px 10px 5px #888888;
+}
+#home, #projects, #contact {
+    width: 79em;
+    margin: 0 auto;
+}
+.pure-u-1-4, #project_list, .page_text {
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin: 0 auto;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+#home_content, #project_list, #contact_boxes, #contact_main{
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#image_fader img, #about_us, #feeds, #project_list, #contact_main, #contact .pure-u-1-3 {
+    -webkit-box-shadow: 1px 1px 2px 0px #363636;
+    -moz-box-shadow: 1px 1px 2px 0px #363636;
+    box-shadow: 1px 1px 2px 0px #363636;
+}
+nav {
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+    position: fixed;
+    top: 0;
+    -webkit-box-shadow: 0px 0px 10px 10px #888888;
+    -moz-box-shadow: 0px 0px 10px 10px #888888;
+    box-shadow: 0px 0px 10px 10px #888888;
+}
+nav li {
+    padding-top: 10px;
+}
+h2, h3 {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 1px;
+    letter-spacing: 2px;
+    line-height: 40px;
+}
+p, #home_content #about_us a {
+    font-family: 'Comfortaa', cursive;
+    font-size: 18px;
+}
+a:hover, a:focus {
+    cursor: pointer;
+}
+iframe {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* * * * * * * * * * * * * * Wrappers and BG Images * * * * * * * * * * * * * */
+
+#home_wrapper {
+    background-image: url(../img/bg1.png);
+    overflow: auto;
+    padding-top: 7em;
+}
+#projects_wrapper {
+    background-image: url(../img/bg2.png);
+    overflow:auto;
+    padding-top: 3em;
+    height: 70em;
+}
+#contact_wrapper {
+    background-image: url(../img/bg3.png);
+    overflow:auto;
+    padding-top: 3em;
+    height: 44em;
+}
+
+/* * * * * * * * * * * * * * Modals and Carousels * * * * * * * * * * * * * */
+
+.modal_content img {
+    border-color: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+}
+.owl-modal_content img:hover, .owl-modal_content img:focus {
+    cursor: pointer;
+    opacity:1.0;
+    filter:alpha(opacity=100);
+}
+.owl-carousel .owl-item img {
+    width: auto;
+}
+
+#image_fader .image_fader_item img {
+    display: block;
+    width: 71.2em;
+    height: 450px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+#simplemodal-container {
+    -webkit-box-shadow: 0px 0px 2px 0px #000;
+    -moz-box-shadow: 0px 0px 2px 0px #000;
+    box-shadow: 0px 0px 2px 0px #000;
+}
+.modal_photo_carousel {
+    height: 220px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+#modal_video_container {
+    padding-right: 20px;
+}
+
+.modal_content {
+    display: none;
+}
+#simplemodal-overlay {
+    background-color:#000;
+}
+#simplemodal-container {
+    height:80%; 
+    width:85%; 
+    background-color:#FFFFFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.photo_slider { position: relative; overflow: auto; }
+.photo_slider li { list-style: none; }
+.photo_slider ul li { float: left; }
+.modal_content .pure-u-1-2 {
+    text-align: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 40%;
+}
+.modal_content .project_desc {
+    font-family: 'Comfortaa', cursive;
+    font-size: 18px;
+    font-weight: 1px;
+    margin-top: 0;
+    padding-top: 0;
+    line-height: 30px;
+    padding-left: 6%;
+}
+.modal_content .pure-u-1-2 iframe {
+    width: 600px;
+    height: 260px;
+}
+
+/* * * * * * * * * * * * * * Home Page * * * * * * * * * * * * * */
+
+#home_content {
+    height: 67em;
+}
+#home_content #about_us {
+    width: 48em;
+    float: left;
+    position: relative;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top: 1.6em;
+    height: 35em;
+}
+#home_content #about_us h2 {
+    font-size: 1.7em;
+    text-align: left;
+    padding-bottom: 0;
+    padding-top: 1em;
+    padding-left: 5%;
+    line-height: 0;
+}
+#home_content #about_us p {
+    font-size: 1.1em;
+}
+#home_content #about_us .video {
+    display: inline-block;
+    float: right;
+    margin-left: 1em;
+    padding-right: 1em;
+}
+#home_content #about_us .video p {
+    color: #3C3C3C;
+    margin-top: 0.1em;
+    font-size: 0.7em;
+    line-height: 0;
+}
+#home_content #about_us a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#home_content #about_us img {
+    height: 1.3em;
+}
+#home_content #feeds {
+    float: right;
+    width: 20em;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top: 1.5em;
+    height: 35em;
+}
+#home_content p {
+    font-size: 22px;
+    text-align: left;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-right: 5%;
+    line-height: 40px;
+}
+
+/* * * * * * * * * * * * * * Projects Page * * * * * * * * * * * * * */
+
+.pure-menu li a:hover, .pure-menu li a:focus {
+    background: none;
+    text-decoration: underline;
+}
+#project_list {
+    margin-bottom: 2%;
+}
+#project_list img {
+    height: 10em;
+}
+#project_list h2 {
+    text-align: left;
+}
+#project_item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+#project_item:hover, #project_item:focus {
+    background-color: #D1D1D1;
+    cursor: pointer;
+}
+#project_item p {
+    font-size: 22px;
+}
+
+/* * * * * * * * * * * * * * Contact Page * * * * * * * * * * * * * */
+
+#contact #contact_main {
+    background-color: #FFFFFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+#contact #contact_main h2 {
+    margin-top: 0;
+}
+#contact .pure-u-1-3 {
+    height: 350px;
+    width: 25%;
+    position: relative;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-right: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#contact img {
+    max-height: 40%;
+    max-width: 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;;
+}
+#footer {
+    background-color: #474747;
+    left: 0;
+    bottom: 0;
+    height: 4em;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 12px 4px #000;
+    -moz-box-shadow: 0px 0px 12px 4px #000;
+    box-shadow: 0px 0px 12px 4px #000;
+}
