@@ -1,3 +1,4 @@
 flask
 flask-sqlalchemy
-flask-sqlalchemy-migrate
+sqlalchemy-migrate
+flask-wtf
