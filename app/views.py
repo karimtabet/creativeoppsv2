@@ -25,7 +25,7 @@ def login():
 
 @lm.user_loader
 def load_user(id):
-    return User.query.get(int(id))
+    return Admin.query.get(int(id))
 
 @oid.after_login
 def after_login(resp):
@@ -34,17 +34,19 @@ def after_login(resp):
         return redirect(url_for('login'))
     admin = Admin.query.filter_by(email=resp.email).first()
     if admin is None:
-        nickname = resp.nickname
-        if nickname is None or nickname == "":
-            nickname = resp.email.split('@')[0]
-        admin = Admin(nickname=nickname, email=resp.email)
-        db.session.add(admin)
-        db.session.commit()
+        # nickname = resp.nickname
+        # if nickname is None or nickname == "":
+        #     nickname = resp.email.split('@')[0]
+        # admin = Admin(nickname=nickname, email=resp.email)
+        # db.session.add(admin)
+        # db.session.commit()
+        flash('Admin does not exist')
+        return redirect(url_for('login'))
     remember_me = False
     if 'remember_me' in session:
         remember_me = session['remember_me']
         session.pop('remember_me', None)
-    login_user(user, remember = remember_me)
+    login_user(admin, remember = remember_me)
     return redirect(request.args.get('next') or url_for('index'))
 
 @app.before_request
