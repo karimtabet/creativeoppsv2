@@ -36,7 +36,6 @@ def after_login(resp):
         return redirect(url_for('login'))
     admin = Admin.query.filter_by(email=resp.email).first()
     if admin is None:
-        print "HI"
         # nickname = resp.nickname
         # if nickname is None or nickname == "":
         #     nickname = resp.email.split('@')[0]
