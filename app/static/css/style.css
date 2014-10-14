@@ -99,6 +99,10 @@ iframe {
 
 /* * * * * * * * * * * * * * Modals and Carousels * * * * * * * * * * * * * */
 
+.modal_content {
+    display: none;
+    text-align: left;
+}
 .modal_content #modal_header {
     position: relative;
     height: 7em;
@@ -107,7 +111,6 @@ iframe {
     border-bottom: 1px solid;
 }
 .modal_content h1 {
-    text-align: left;
     font-size: 3em;
     margin-bottom: 0;
 }
@@ -122,13 +125,18 @@ iframe {
     left: 0;
     padding-left: 14em;
 }
-.modal_content img {
-    border-color: #FFFFFF;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    opacity:0.8;
-    filter:alpha(opacity=80);
+.modal_content #modal_body {
+    position: relative;
+    width: 75em;
+    margin: 0 auto;
+    border-bottom: 1px solid;
+}
+.modal_content #modal_body h3 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+}
+.modal_content #modal_text {
+    margin-right: 10%;
 }
 #image_fader .image_fader_item img {
     display: block;
@@ -143,9 +151,6 @@ iframe {
     -webkit-box-shadow: 0px 0px 2px 0px #000;
     -moz-box-shadow: 0px 0px 2px 0px #000;
     box-shadow: 0px 0px 2px 0px #000;
-}
-.modal_content {
-    display: none;
 }
 #simplemodal-overlay {
     background-color:#000;
