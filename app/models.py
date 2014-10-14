@@ -30,6 +30,9 @@ class Project(db.Model):
     location = db.Column(db.String(240))
     body = db.Column(db.String(2048))
     date = db.Column(db.Date)
+    avatar_url = db.Column(db.String(380))
+    album_url = db.Column(db.String(380))
+    video_url = db.Column(db.String(380))
 
     def __repr__(self):
         return '<Post %r>' % (self.body)

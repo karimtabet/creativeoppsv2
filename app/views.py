@@ -1,13 +1,15 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
-from forms import LoginForm
-from models import Admin
+from forms import LoginForm, ProjectForm
+from models import Admin, Project
 # , ROLE_USER, ROLE_ADMIN
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    projects = Project.query.all()
+    return render_template('index.html',
+                            projects=projects)
 
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler
@@ -34,6 +36,7 @@ def after_login(resp):
         return redirect(url_for('login'))
     admin = Admin.query.filter_by(email=resp.email).first()
     if admin is None:
+        print "HI"
         # nickname = resp.nickname
         # if nickname is None or nickname == "":
         #     nickname = resp.email.split('@')[0]
@@ -57,3 +60,37 @@ def before_request():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/admin')
+@login_required
+def admin():
+    # user = User.query.filter_by(nickname=nickname).first()
+    # if user == None:
+    #     flash('User %s not found.' % nickname)
+    #     return redirect(url_for('index'))
+    # posts = [
+    #     {'author': user, 'body': 'Test post #1'},
+    #     {'author': user, 'body': 'Test post #2'}
+    # ]
+    projects = Project.query.all()
+    return render_template('admin.html',
+                           projects=projects)
+
+@app.route('/admin/project', defaults = {'project_id':None},
+          methods=['GET', 'POST'])
+@app.route('/admin/project/<project_id>',
+          methods=['GET', 'POST'])
+@login_required
+def updateProject(project_id):
+    form = ProjectForm()
+    project = Project(title=form.title.data,
+                      description=form.description.data,
+                      location=form.location.data,
+                      body=form.body.data,
+                      date=form.date.data,
+                      album_url=form.album_url.data,
+                      video_url=form.video_url.data)
+    db.session.add(project)
+    db.session.commit()
+    return render_template('project.html',
+                           form=form)

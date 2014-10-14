@@ -1,0 +1,10 @@
+<html>
+{% block content %}
+  <hr>
+  {% for project in projects %}
+  <p>
+    {{ project.title }} <b>{{ project.body }}</b>
+  </p>
+  {% endfor %}
+{% endblock %}
+</html>

@@ -1,0 +1,15 @@
+<html>
+{% block content %}
+<form action="" method="post" name="login">
+    {{ form.hidden_tag() }}
+    <p>Title: {{ form.title(size=120) }}</p>
+    <p>Description: {{ form.description(size=120) }}</p>
+    <p>Location: {{ form.location(size=120) }}</p>
+    <p>Textual Body: {{ form.body(size=120) }}</p>
+    <p>Date: {{ form.date(size=120) }}</p>
+    <p>Album URL: {{ form.album_url(size=120) }}</p>
+    <p>Video URL: {{ form.video_url(size=120) }}</p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% endblock %}
+</html>

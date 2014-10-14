@@ -50,18 +50,21 @@
             <section id="projects" ng-controller='projectsController' ng-init="init()">
                 <div id="project_list">
                 <h2>Our List of Projects:</h2>
-                    <div ng-repeat="project in projectList">
+                    {% block content %}
+                    <div>
+                        {% for project in projects %}
                         <div id="project_item" class="pure-g" onclick="">
                             <div class="pure-u-1-3">
                                 <img src="http://www.tocofi.com/wp-content/uploads/2012/05/tocofi_child-art-01-300x225.jpg"/>
                             </div>
                             <div class="pure-u-1-3">
-                                <p></p>
+                                <p>{{ project.title }}</p>
                             </div>
                             <div class="pure-u-1-3">
-                                <p></p>
+                                <p>{{ project.description }}</p>
                             </div>
                         </div>
+                        {% endfor %}
 
                         <div class="modal_content" id="">
                             <h2></h2>
@@ -81,6 +84,7 @@
                             </div>
                         </div>
                     </div>
+                {% endblock %}
                 </div>
             </section>
         </div>
