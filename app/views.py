@@ -82,14 +82,26 @@ def admin():
 @login_required
 def updateProject(project_id):
     form = ProjectForm()
-    project = Project(title=form.title.data,
-                      description=form.description.data,
-                      location=form.location.data,
-                      body=form.body.data,
-                      date=form.date.data,
-                      album_url=form.album_url.data,
-                      video_url=form.video_url.data)
-    db.session.add(project)
-    db.session.commit()
+    if form.validate_on_submit():
+      project = Project(title=form.title.data,
+                        description=form.description.data,
+                        location=form.location.data,
+                        body=form.body.data,
+                        date=form.date.data,
+                        album_url=form.album_url.data,
+                        video_url=form.video_url.data)
+      db.session.add(project)
+      db.session.commit()
+      return redirect(url_for('admin'))
     return render_template('project.html',
                            form=form)
+
+@app.route('/admin/project/delete/<project_id>',
+          methods=['GET', 'POST'])
+@login_required
+def deleteProject(project_id):
+    if request.method == 'POST':
+      project = Project.query.filter_by(id=project_id).first()
+      db.session.delete(project)
+      db.session.commit()
+      return redirect(url_for('admin'))

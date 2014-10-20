@@ -11,7 +11,7 @@ class ProjectForm(Form):
     description = StringField('description', validators=[DataRequired()])
     location = StringField('location')
     body = StringField('body', validators=[DataRequired()])
-    date = DateField('date')
+    date = StringField('date')
     avatar_url = StringField('avatar_url')
     album_url = StringField('album_url')
     video_url = StringField('video_url')

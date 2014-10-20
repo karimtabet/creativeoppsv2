@@ -29,7 +29,7 @@ class Project(db.Model):
     description = db.Column(db.String(380))
     location = db.Column(db.String(240))
     body = db.Column(db.String(2048))
-    date = db.Column(db.Date)
+    date = db.Column(db.String(120))
     avatar_url = db.Column(db.String(380))
     album_url = db.Column(db.String(380))
     video_url = db.Column(db.String(380))
