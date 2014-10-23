@@ -2,9 +2,9 @@
 * Stylesheet divided into 6 headings:     *
 *   - Global and Nav                      *
 *   - Wrappers and BG Images              *
-*   - Modals and Carousels                *
 *   - Home Page                           *
 *   - Projects Page                       *
+*   - Modal Content                       *
 *   - Contact Page                        *
 * * * * * * * * * * * * * * * * * * * * * /
 
@@ -27,7 +27,7 @@ section h2 {
     width: 79em;
     margin: 0 auto;
 }
-.pure-u-1-4, #project_list, .page_text {
+.pure-u-1-4, #project_item_outer, .page_text {
     background-color: #FFFFFF;
     margin: 0 auto;
     -webkit-border-radius: 15px;
@@ -35,19 +35,19 @@ section h2 {
     border-radius: 15px;
     text-align: center;
 }
-#home_content, #project_list, #contact_boxes, #contact_main{
+#home_content, #project_item_outer, #contact_boxes, #contact_main{
     margin-bottom: 2%;
     margin-left: 5%;
     margin-right: 5%;
 }
-#image_fader img, #about_us, #feeds, #project_list, #contact_main, #contact .pure-u-1-3 {
+#image_fader img, #about_us, #feeds, #project_item_outer, #contact_main, #contact .pure-u-1-3 {
     -webkit-box-shadow: 1px 1px 2px 0px #363636;
     -moz-box-shadow: 1px 1px 2px 0px #363636;
     box-shadow: 1px 1px 2px 0px #363636;
 }
 nav {
     font-family: 'Indie Flower', cursive;
-    font-size: 25px;
+    font-size: 1.3em;
     position: fixed;
     top: 0;
     -webkit-box-shadow: 0px 0px 10px 10px #888888;
@@ -56,6 +56,13 @@ nav {
 }
 nav li {
     padding-top: 10px;
+}
+.pure-menu li a:hover, .pure-menu li a:focus {
+    background: none;
+    color: #000;
+}
+.pure-menu-selected {
+    font-size: 1.7em;
 }
 h1, h2, h3 {
     font-family: 'Comfortaa', cursive;
@@ -96,90 +103,20 @@ iframe {
     padding-top: 3em;
 }
 
-/* * * * * * * * * * * * * * Modals and Carousels * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * Home Page * * * * * * * * * * * * * */
 
-.modal_content {
-    display: none;
-    text-align: left;
+#home_content {
+    margin-top: 0.5em;
+    height: 67em;
 }
-.modal_content #modal_header {
-    position: relative;
-    height: 7em;
-    width: 75em;
-    margin: 0 auto;
-    border-bottom: 1px solid;
-}
-.modal_content h1 {
-    font-size: 3em;
-    margin-bottom: 0;
-}
-.modal_content #modal_date {
-    position: absolute;
-    display: inline-block;
-    left: 0;
-}
-.modal_content #modal_location {
-    position: absolute;
-    display: inline-block;
-    left: 0;
-    padding-left: 14em;
-}
-.modal_content #modal_body {
-    position: relative;
-    width: 75em;
-    margin: 0 auto;
-    border-bottom: 1px solid;
-}
-.modal_content #modal_body h3 {
-    font-size: 1.5em;
-    margin-bottom: 0;
-}
-.modal_content #modal_text {
-    margin-right: 10%;
-}
-#image_fader .image_fader_item img {
+#home_content #image_fader .image_fader_item img {
     display: block;
     width: 71.2em;
-    height: 450px;
+    height: 27em;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
     margin-bottom: 1em;
-}
-#simplemodal-container {
-    -webkit-box-shadow: 0px 0px 2px 0px #000;
-    -moz-box-shadow: 0px 0px 2px 0px #000;
-    box-shadow: 0px 0px 2px 0px #000;
-}
-#simplemodal-overlay {
-    background-color:#000;
-}
-#simplemodal-container {
-    height:80%; 
-    width:85%; 
-    background-color:#FFFFFF;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-}
-.modal_content .project_desc {
-    font-family: 'Comfortaa', cursive;
-    font-size: 18px;
-    font-weight: 1px;
-    margin-top: 0;
-    padding-top: 0;
-    line-height: 30px;
-    padding-left: 6%;
-}
-.modal_content .pure-u-1-2 iframe {
-    width: 600px;
-    height: 260px;
-}
-
-/* * * * * * * * * * * * * * Home Page * * * * * * * * * * * * * */
-
-#home_content {
-    height: 67em;
 }
 #home_content #about_us {
     width: 48em;
@@ -207,7 +144,7 @@ iframe {
     display: inline-block;
     float: right;
     margin-left: 1em;
-    padding-right: 1em;
+    padding-right: 2em;
 }
 #home_content #about_us .video p {
     color: #3C3C3C;
@@ -244,21 +181,19 @@ iframe {
 
 /* * * * * * * * * * * * * * Projects Page * * * * * * * * * * * * * */
 
-.pure-menu li a:hover, .pure-menu li a:focus {
-    background: none;
-    text-decoration: underline;
+#project_item_outer {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
 }
-#project_list {
-    padding-bottom: 3em;
-}
-#project_list img {
+#project_item_outer img {
     height: 10em;
     vertical-align: middle;
 }
-#project_list h2 {
+#project_item_outer h2 {
     text-align: left;
     padding-top: 1em;
-    padding-left: 3.5em;
+    padding-left: 2em;
+    margin-bottom: 0;
 }
 #project_item {
     padding-top: 1em;
@@ -282,9 +217,83 @@ iframe {
 #project_item #project_sub_headings p {
     margin-bottom: 0.5em;
 }
-#project_item:hover, #project_item:focus {
+#project_item_outer:hover, #project_item_outer:focus {
     background-color: #D1D1D1;
     cursor: pointer;
+}
+
+/* * * * * * * * * * * * * * Modal Content * * * * * * * * * * * * * */
+
+#simplemodal-container {
+    -webkit-box-shadow: 0px 0px 2px 0px #000;
+    -moz-box-shadow: 0px 0px 2px 0px #000;
+    box-shadow: 0px 0px 2px 0px #000;
+}
+#simplemodal-overlay {
+    background-color:#000;
+}
+#simplemodal-container {
+    height:80%; 
+    width:85%; 
+    background-color:#FFFFFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.modal_content {
+    display: none;
+    text-align: left;
+    width: 75em;
+    margin: 0 auto;
+}
+.modal_content #modal_header {
+    position: relative;
+    height: 6.6em;
+    width: 75em;
+    margin: 0 auto;
+    border-bottom: 1px solid;
+}
+.modal_content h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+}
+.modal_content #modal_date {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+}
+.modal_content #modal_location {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    padding-left: 14em;
+}
+.modal_content #modal_body {
+    position: relative;
+    border-bottom: 1px solid;
+}
+.modal_content #modal_body h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+}
+.modal_content #modal_text {
+    margin-right: 10%;
+}
+.modal_content #modal_photos img {
+    margin: 0.5em;
+}
+.modal_content .project_desc {
+    font-family: 'Comfortaa', cursive;
+    font-size: 18px;
+    font-weight: 1px;
+    margin-top: 0;
+    padding-top: 0;
+    line-height: 30px;
+    padding-left: 6%;
+}
+.modal_content .pure-u-1-2 iframe {
+    width: 600px;
+    height: 260px;
 }
 
 /* * * * * * * * * * * * * * Contact Page * * * * * * * * * * * * * */
@@ -296,6 +305,7 @@ iframe {
     -moz-border-radius: 15px;
     border-radius: 15px;
     height: 40em;
+    margin-top: 1em;
     margin-bottom: 4em;
 }
 #contact #contact_main h2 {
@@ -310,8 +320,16 @@ iframe {
     max-width: 100%;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
-    border-radius: 15px;;
+    border-radius: 15px;
 }
 #footer {
-    border-top: 1px dotted #434223
+    border-top: 1px dotted #434223;
+}
+#footer p, #footer a {
+    font-size: 1em;
+    color: #000000;
+    text-decoration: none;
+}
+#footer a {
+    color: #363434
 }

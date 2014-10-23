@@ -23,6 +23,10 @@ class Admin(db.Model):
     def __repr__(self):
         return '<Admin %r>' % (self.nickname)
 
+class About(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    about_us = db.Column(db.String(4096))
+
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(240))
@@ -32,7 +36,20 @@ class Project(db.Model):
     date = db.Column(db.String(120))
     avatar_url = db.Column(db.String(380))
     album_url = db.Column(db.String(380))
+    thumbnail_url = db.Column(db.String(380))
     video_url = db.Column(db.String(380))
+    video2_url = db.Column(db.String(380))
+    video3_url = db.Column(db.String(380))
+    pictures = db.relationship('Picture', backref='projects', lazy='dynamic')
 
     def __repr__(self):
-        return '<Post %r>' % (self.body)
+        return '<Project %r>' % (self.body)
+
+class Picture(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    thumbnail_url = db.Column(db.String(140))
+    image_url = db.Column(db.String(140))
+    project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
+
+    def __repr__(self):
+        return '<Picture %r>' % (self.body)

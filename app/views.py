@@ -2,14 +2,16 @@ from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
 from forms import LoginForm, ProjectForm
-from models import Admin, Project
-# , ROLE_USER, ROLE_ADMIN
+from models import Admin, Project, Picture
+import urllib2
 
 @app.route('/')
 def index():
     projects = Project.query.all()
+    pictures = Picture.query.all()
     return render_template('index.html',
-                            projects=projects)
+                            projects=projects,
+                            pictures=pictures)
 
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler
@@ -63,14 +65,6 @@ def logout():
 @app.route('/admin')
 @login_required
 def admin():
-    # user = User.query.filter_by(nickname=nickname).first()
-    # if user == None:
-    #     flash('User %s not found.' % nickname)
-    #     return redirect(url_for('index'))
-    # posts = [
-    #     {'author': user, 'body': 'Test post #1'},
-    #     {'author': user, 'body': 'Test post #2'}
-    # ]
     projects = Project.query.all()
     return render_template('admin.html',
                            projects=projects)
@@ -80,7 +74,7 @@ def admin():
 @app.route('/admin/project/<project_id>',
           methods=['GET', 'POST'])
 @login_required
-def updateProject(project_id):
+def update_project(project_id):
     form = ProjectForm()
     if form.validate_on_submit():
       project = Project(title=form.title.data,
@@ -89,9 +83,14 @@ def updateProject(project_id):
                         body=form.body.data,
                         date=form.date.data,
                         album_url=form.album_url.data,
+                        thumbnail_url=form.thumbnail_url.data,
                         video_url=form.video_url.data)
       db.session.add(project)
       db.session.commit()
+      db.session.refresh(project)
+      if project.album_url:
+        album_id = project.album_url[project.album_url.find('sets/')+5:-1]
+        get_pictures(album_id, project.id)
       return redirect(url_for('admin'))
     return render_template('project.html',
                            form=form)
@@ -103,5 +102,36 @@ def deleteProject(project_id):
     if request.method == 'POST':
       project = Project.query.filter_by(id=project_id).first()
       db.session.delete(project)
+
+      pictures = Picture.query.filter_by(project_id=project_id).all()
+      for pic in pictures:
+        db.session.delete(pic)
+
       db.session.commit()
       return redirect(url_for('admin'))
+
+def get_pictures(album_id, project_id):
+    picture_id_list = []
+    response = urllib2.urlopen("https://api.flickr.com/services/rest/" + 
+                              "?method=flickr.photosets.getPhotos" + 
+                              "&api_key=d8e4ad571b7215e272e295dfc8aac114" + 
+                              "&photoset_id=" + album_id +
+                              "&format=rest" + 
+                              "&api_sig=82c0055d337d39cbe34f080b93a6ef59").read()
+    picture_xml_list = response.split('/>')
+    for xml in picture_xml_list:
+      if len(xml) > 50 and len(xml) < 150:
+        picture_id = xml[13:24]
+        picture_secret = xml[34:44]
+        picture_server = xml[54:58]
+        picture_farm = xml[66:67]
+
+        picture_url = "https://www.flickr.com/photos/128639640@N03/" + picture_id + "/player/"
+        thumbnail_url = ("https://farm" + picture_farm + ".staticflickr.com/" + 
+                          picture_server + "/" + picture_id + "_" + picture_secret + "_q.jpg")
+
+        picture = Picture(thumbnail_url=thumbnail_url,
+                        image_url=picture_url,
+                        project_id=project_id)
+        db.session.add(picture)
+        db.session.commit()

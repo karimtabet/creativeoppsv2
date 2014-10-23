@@ -14,4 +14,5 @@ class ProjectForm(Form):
     date = StringField('date')
     avatar_url = StringField('avatar_url')
     album_url = StringField('album_url')
+    thumbnail_url = StringField('thumbnail_url')
     video_url = StringField('video_url')
