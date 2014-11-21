@@ -8,7 +8,7 @@ padding-top: 6px;
 	color:#39596e;
 	 border: 1px solid #3c7f9f;
 	 padding: 4px 12px 9px;
-	background-color: #c2e8f4;
+	background-color: #EEEEEE;
 	width: 100%;
 	height: 31px;
 	float:left;
@@ -22,7 +22,7 @@ padding-top: 6px;
 	color:#39596e;
 	height: 170px;
 	overflow: auto;
-	background-color: #c2e8f4;
+	background-color: #EEEEEE;
 	 border: 1px solid #3c7f9f;
 	 padding: 12px 12px 9px;
 	width: 100%;
@@ -97,7 +97,7 @@ padding-top: 6px;
 }
 
 .btns a:hover {
-	background-color: #c2e8f4;
+	background-color: #EEEEEE;
 	border-color: #3c7f9f;
 	color: #39596e;
 }
@@ -125,7 +125,7 @@ padding-top: 6px;
 
 	 border: 1px solid #3c7f9f;
 
-	background-color: #c2e8f4;
+	background-color: #EEEEEE;
 
 	text-align: center;
 	padding: 20px 10px;

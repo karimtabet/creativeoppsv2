@@ -22,7 +22,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 .sf-menu>li>a{
 	font-size: 18px;
 	font-family: 'Signika', sans-serif;
-	color: #fff;
+	color: #000000;
 	position: relative;
 	line-height: 24px;
 	padding: 38px 13px 6px;
@@ -34,7 +34,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 .sf-menu>li .hover {
 	position: absolute;
 	left: 0;
-transition: 0.5s ease;
+	transition: 0.5s ease;
 	-o-transition: 0.5s ease;
 	-webkit-transition: 0.5s ease;
 	display: block;
@@ -43,6 +43,12 @@ transition: 0.5s ease;
 	height: 100%;
 	top: -100%;
 	background-color: #3f9fc9;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 .sf-menu>li.sfHover .hover, .sf-menu>li:hover .hover{
