@@ -1,0 +1,20 @@
+/**/
+@import url(//fonts.googleapis.com/css?family=Signika:400,300,600,700);
+/* 'Signika', sans-serif */
+
+@import "../css/reset.css";
+@import "../css/grid.css";
+@import "../css/superfish.css";
+@import "../css/style.css";
+
+.project_page {
+  background-color: #6098AE;
+}
+.project_page h2 {
+  margin-bottom: 30px;
+  text-align: left;
+}
+.project_page .meta {
+  font-size: 30px;
+  padding-left: 5px;
+}

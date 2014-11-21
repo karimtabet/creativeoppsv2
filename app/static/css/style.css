@@ -235,6 +235,9 @@ header.page4 .hover {
 	-moz-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
 	box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
 }
+.project_item:hover {
+	background-color: #D8D8D8;
+}
 .project_item .grid_8 {
 	border-bottom: 1px solid #BDBDBD;
 }

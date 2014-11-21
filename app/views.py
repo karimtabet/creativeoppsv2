@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
 from forms import LoginForm, ProjectForm
-from models import Admin, Project, Picture
+from models import Admin, Project, Picture, Video
 import urllib2
 
 @app.route('/')
@@ -14,9 +14,12 @@ def index():
 @app.route('/project/<project_id>', methods=['GET'])
 def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
-  pictures = Picture.query.all()
+  pictures = Picture.query.filter_by(project_id=project_id).first()
+  videos = Video.query.filter_by(project_id=project_id).first()
   return render_template('project.html',
-                            project=project)
+                            project=project,
+                            pictures=pictures,
+                            videos=videos)
 
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler
@@ -89,13 +92,15 @@ def update_project(project_id):
                         date=form.date.data,
                         album_url=form.album_url.data,
                         thumbnail_url=form.thumbnail_url.data,
-                        video_url=form.video_url.data)
+                        video_urls=form.video_urls.data)
       db.session.add(project)
       db.session.commit()
       db.session.refresh(project)
       if project.album_url:
         album_id = project.album_url[project.album_url.find('sets/')+5:-1]
         get_pictures(album_id, project.id)
+      if project.video_urls:
+        get_videos(project.video_urls, project_id)
       return redirect(url_for('admin'))
     return render_template('project_form.html',
                            form=form)
@@ -140,3 +145,10 @@ def get_pictures(album_id, project_id):
                         project_id=project_id)
         db.session.add(picture)
         db.session.commit()
+
+def get_videos(video_urls, project_id):
+  for video_url in video_urls.split(','):
+    video = Video(video_url=video_url,
+                        project_id=project_id)
+    db.session.add(video)
+    db.session.commit()

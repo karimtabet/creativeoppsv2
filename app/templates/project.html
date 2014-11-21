@@ -5,7 +5,8 @@
         <title>{{ project.title }}</title>
         <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
         <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/project.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/initcarousel-1.css') }}">
         <!--[if lt IE 8]>
             <div style=' clear: both; text-align:center; position: relative;'>
                 <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -18,7 +19,53 @@
             <link rel="stylesheet" media="screen" href="css/ie.css">
         <![endif]-->
     </head>
-    <body class="">
-    <h1>{{ project.title }}</h1>
+    <body class="project_page">
+        <div class="container_12">
+            <div class="grid_3">
+                <a href="/">Back to Creative Opportunities</a>
+            </div>
+            <div class="grid_12">
+                <h2>{{ project.title }}</h2>
+            </div>
+            <div class="grid_3 meta">
+                {{ project.location }}
+            </div>
+            <div class="grid_3 meta">
+                {{ project.date }}
+            </div>
+        </div>
+    <!-- <div id="amazingcarousel-container-1">
+        <div id="amazingcarousel-1" style="display:block;position:relative;width:100%;max-width:720px;margin:0px auto 0px;">
+            <div class="amazingcarousel-list-container">
+                <ul class="amazingcarousel-list">
+                    {% if videos %}
+                        {% for video in videos %}
+                        <li class="amazingcarousel-item">
+                            <div class="amazingcarousel-item-container">
+                                <div class="amazingcarousel-image"><a href="{{ video.video_url }}" class="html5lightbox" data-group="amazingcarousel-1"/></a></div>                
+                            </div>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                    {% if pictures %}
+                        {% for picture in pictures %}
+                        <li class="amazingcarousel-item">
+                            <div class="amazingcarousel-item-container">
+                                <div class="amazingcarousel-image"><a href="{{ picture.image_url }}" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ picture.thumbnail_url }}"/></a></div>                
+                            </div>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <div class="amazingcarousel-prev"></div>
+                <div class="amazingcarousel-next"></div>
+            </div>
+            <div class="amazingcarousel-nav"></div>
+            <div class="amazingcarousel-engine"><a href="http://amazingcarousel.com">jQuery Scroller</a></div>
+        </div>
+    </div> -->
     </body>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/amazingcarousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/initcarousel-1.js') }}"></script>
 </html>

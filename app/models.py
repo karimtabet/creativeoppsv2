@@ -37,10 +37,9 @@ class Project(db.Model):
     avatar_url = db.Column(db.String(380))
     album_url = db.Column(db.String(380))
     thumbnail_url = db.Column(db.String(380))
-    video_url = db.Column(db.String(380))
-    video2_url = db.Column(db.String(380))
-    video3_url = db.Column(db.String(380))
+    video_urls = db.Column(db.String(860))
     pictures = db.relationship('Picture', backref='projects', lazy='dynamic')
+    videos = db.relationship('Video', backref='projects', lazy='dynamic')
 
     def __repr__(self):
         return '<Project %r>' % (self.body)
@@ -53,3 +52,11 @@ class Picture(db.Model):
 
     def __repr__(self):
         return '<Picture %r>' % (self.body)
+
+class Video(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    video_url = db.Column(db.String(140))
+    project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
+
+    def __repr__(self):
+        return '<Video %r>' % (self.body)
