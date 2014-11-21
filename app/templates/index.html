@@ -20,7 +20,7 @@
         <![endif]-->
     </head>
     <body class="">
-    
+
 <!--==============================Header=================================-->
         <header class="page1">
             <div class="container_12">
@@ -67,6 +67,7 @@
                 <div class="slogan">
                     <h3>Our List of Projects</h3>
                     {% for project in projects %}
+                    <a href='/project/{{ project.id }}'>
                     <div class="project_item">
                         <div class="grid_4">
                             <div class="box maxhaeight1">
@@ -88,6 +89,7 @@
                             <p>{{ project.description }}</p>
                         </div>
                     </div>
+                    </a>
                     {% endfor %}
                 </div>
             </div>
@@ -183,27 +185,27 @@
     <script>
         $(document).ready(function(){
             !function(){
-        var map=[]
-         ,names=[]
-         ,win=$(window)
-         ,header=$('header')
-         ,currClass
-        $('.content').each(function(n){
-         map[n]=this.offsetTop
-         names[n]=$(this).attr('id')
-        })
-        win
-         .on('scroll',function(){
-            var i=0
-            while(map[i++]<=win.scrollTop());
-            if(currClass!==names[i-2])
-            currClass=names[i-2]
-            header.removeAttr("class").addClass(names[i-2])
-         })
-        }(); });
-                function goToByScroll(id){
+                var map=[]
+                 ,names=[]
+                 ,win=$(window)
+                 ,header=$('header')
+                 ,currClass
+                $('.content').each(function(n){
+                     map[n]=this.offsetTop
+                     names[n]=$(this).attr('id')
+                })
+                win.on('scroll',function(){
+                    var i=0
+                    while(map[i++]<=win.scrollTop());
+                    if(currClass!==names[i-2])
+                    currClass=names[i-2]
+                    header.removeAttr("class").addClass(names[i-2])
+                })
+            }(); 
+        });
+        function goToByScroll(id){
             $('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
-            }
+        }
     </script>
 <!--==============================Google Analytics=================================-->
     <script>

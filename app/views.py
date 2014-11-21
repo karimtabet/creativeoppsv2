@@ -16,7 +16,7 @@ def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
   pictures = Picture.query.all()
   return render_template('project.html',
-                            projects=projects)
+                            project=project)
 
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler
