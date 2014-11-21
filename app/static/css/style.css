@@ -153,9 +153,6 @@ header h1 a img {
 #page4:after {
 	border-color: #67904B transparent transparent transparent;
 }
-.sf-menu li a {
-	color: #000000;
-}
 header.page1 .men .hover{
 	top: 0;
 }
@@ -316,6 +313,7 @@ header.page4 .hover {
 }
 .map a {
 	color: #373b47;
+	cursor: pointer;
 }
 
 .map a:hover {

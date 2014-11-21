@@ -8,10 +8,15 @@ import urllib2
 @app.route('/')
 def index():
     projects = Project.query.all()
-    pictures = Picture.query.all()
     return render_template('index.html',
-                            projects=projects,
-                            pictures=pictures)
+                            projects=projects)
+
+@app.route('/project/<project_id>', methods=['GET'])
+def project(project_id):
+  project = Project.query.filter_by(id=project_id).first()
+  pictures = Picture.query.all()
+  return render_template('project.html',
+                            projects=projects)
 
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler
@@ -92,7 +97,7 @@ def update_project(project_id):
         album_id = project.album_url[project.album_url.find('sets/')+5:-1]
         get_pictures(album_id, project.id)
       return redirect(url_for('admin'))
-    return render_template('project.html',
+    return render_template('project_form.html',
                            form=form)
 
 @app.route('/admin/project/delete/<project_id>',
