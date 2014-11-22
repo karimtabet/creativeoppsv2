@@ -14,8 +14,8 @@ def index():
 @app.route('/project/<project_id>', methods=['GET'])
 def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
-  pictures = Picture.query.filter_by(project_id=project_id).first()
-  videos = Video.query.filter_by(project_id=project_id).first()
+  pictures = Picture.query.filter_by(project_id=project_id)
+  videos = Video.query.filter_by(project_id=project_id)
   return render_template('project.html',
                             project=project,
                             pictures=pictures,
