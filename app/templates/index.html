@@ -124,7 +124,7 @@
                     </div>
                     <div class="grid_5 prefix_1">
                         <div class="text1">Ask a Question</div>
-                        <form id="form">
+                        <form id="form" action="MAILTO:contact@creativeopportunities.co.uk" method="post" enctype="text/plain">
                             <div class="success_wrapper">
                                 <div class="success">Contact form submitted!<br>
                                     <strong>We will be in touch soon.</strong> 
@@ -151,7 +151,7 @@
                                 </label>
                                 <div class="clear"></div>
                                 <div class="btns">
-                                    <a data-type="submit" class="link1">Send</a>
+                                    <a onclick="$(this).closest('form').submit()" class="link1">Send</a>
                                     <div class="clear"></div>
                                 </div>
                             </fieldset>

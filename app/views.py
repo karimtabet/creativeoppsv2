@@ -47,7 +47,7 @@ def after_login(resp):
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(admin, remember = remember_me)
-    return redirect(url_for('index', _external=True))
+    return redirect(url_for('admin'))
 
 @app.before_request
 def before_request():
@@ -62,8 +62,8 @@ def logout():
 @login_required
 def admin():
     projects = Project.query.all()
-    return render_template('admin.html',
-                           projects=projects)
+    return redirect(url_for('admin.html',
+                           projects=projects))
 
 @app.route('/admin/project', defaults = {'project_id':None},
           methods=['GET', 'POST'])
