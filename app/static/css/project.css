@@ -28,3 +28,11 @@
   font-style: normal;
   line-height: 30px;
 }
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+footer .copy {
+  color: #FFFFFF;
+}
