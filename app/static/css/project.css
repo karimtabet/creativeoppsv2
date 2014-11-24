@@ -8,13 +8,23 @@
 @import "../css/style.css";
 
 .project_page {
-  background-color: #6098AE;
+  background-color: #67904B;
 }
 .project_page h2 {
   margin-bottom: 30px;
   text-align: left;
+  padding-top: 80px;
 }
 .project_page .meta {
   font-size: 30px;
   padding-left: 5px;
+}
+#back_btn {
+  padding-top: 10px;
+  padding-left: 4px;
+}
+#text_body {
+  font-size: 20px;
+  font-style: normal;
+  line-height: 30px;
 }

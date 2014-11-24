@@ -21,7 +21,7 @@
     </head>
     <body class="project_page">
         <div class="container_12">
-            <div class="grid_3">
+            <div id="back_btn" class="grid_3">
                 <a href="/">Back to Creative Opportunities</a>
             </div>
             <div class="grid_12">
@@ -34,6 +34,7 @@
                 {{ project.date }}
             </div>
         </div>
+        <!-- Carousel -->
         <div id="amazingcarousel-container-1">
             <div id="amazingcarousel-1" style="display:block;position:relative;width:100%;max-width:960px;margin:0px auto 0px;">
                 <div class="amazingcarousel-list-container">
@@ -58,6 +59,12 @@
 >                </div>
                 <div class="amazingcarousel-nav"></div>
                 <div class="amazingcarousel-engine"><a href="http://amazingcarousel.com">jQuery Carousel</a></div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+        <div class="container_12">
+            <div id="text_body" class="grid_9">
+                {{ project.body }}
             </div>
         </div>
     </body>
