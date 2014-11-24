@@ -3,7 +3,7 @@ from flask.ext.login import login_user, logout_user, current_user, login_require
 from app import app, db, lm, oid
 from forms import ProjectForm
 from models import Admin, Project, Picture, Video
-import urllib2
+import urllib2, urlparse
 
 @app.route('/')
 def index():
@@ -16,6 +16,9 @@ def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
   pictures = Picture.query.filter_by(project_id=project_id)
   videos = Video.query.filter_by(project_id=project_id)
+  for video in videos:
+    print "WHUTUP"
+    print video.video_url
   return render_template('project.html',
                             project=project,
                             pictures=pictures,
@@ -62,8 +65,6 @@ def logout():
 @login_required
 def admin():
     projects = Project.query.all()
-    for project in projects:
-      print project.title
     return render_template('admin.html',
                            projects=projects)
 
@@ -90,7 +91,7 @@ def update_project(project_id):
         album_id = project.album_url[project.album_url.find('sets/')+5:-1]
         get_pictures(album_id, project.id)
       if project.video_urls:
-        get_videos(project.video_urls, project_id)
+        get_videos(project.video_urls, project.id)
       return redirect(url_for('admin'))
     return render_template('project_form.html',
                            form=form)
@@ -138,7 +139,13 @@ def get_pictures(album_id, project_id):
 
 def get_videos(video_urls, project_id):
   for video_url in video_urls.split(','):
+    video_url = video_url.strip()
+    url_data = urlparse.urlparse(video_url)
+    query = urlparse.parse_qs(url_data.query)
+    video_id = query["v"][0]
+    thumbnail_url = 'http://img.youtube.com/vi/' + video_id + '/default.jpg'
     video = Video(video_url=video_url,
+                        thumbnail_url=thumbnail_url,
                         project_id=project_id)
     db.session.add(video)
     db.session.commit()

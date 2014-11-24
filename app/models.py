@@ -56,6 +56,7 @@ class Picture(db.Model):
 class Video(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     video_url = db.Column(db.String(140))
+    thumbnail_url = db.Column(db.String(140))
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
 
     def __repr__(self):
