@@ -45,21 +45,13 @@
                             </div>
                         </li>
                         {% endfor %}
+                        {% for picture in pictures %}
                         <li class="amazingcarousel-item">
                             <div class="amazingcarousel-item-container">
-                                <div class="amazingcarousel-image"><a href="http://www.youtube.com/embed/QRx8cC1eix4" title="The Best Band You Never Heard In Your Life Full CD 1"  class="html5lightbox" data-group="amazingcarousel-1"><img src="images/QRx8cC1eix4.jpg"  alt="The Best Band You Never Heard In Your Life Full CD 1" /></a></div>
-                                <div class="amazingcarousel-title">The Best Band You Never Heard In Your Life Full CD 1</div>                    </div>
+                                <div class="amazingcarousel-image"><a href="{{ picture.image_url }}" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ picture.image_url }}"/></a></div>
+                            </div>
                         </li>
-                        <li class="amazingcarousel-item">
-                            <div class="amazingcarousel-item-container">
-                                <div class="amazingcarousel-image"><a href="images/file_converter_icon-lightbox.png" title="file_converter_icon"  class="html5lightbox" data-group="amazingcarousel-1"><img src="images/file_converter_icon.png"  alt="file_converter_icon" /></a></div>
-                                <div class="amazingcarousel-title">file_converter_icon</div>                    </div>
-                        </li>
-                        <li class="amazingcarousel-item">
-                            <div class="amazingcarousel-item-container">
-                                <div class="amazingcarousel-image"><a href="images/iPhone-lightbox.gif" title="iPhone"  class="html5lightbox" data-group="amazingcarousel-1"><img src="images/iPhone.gif"  alt="iPhone" /></a></div>
-                                <div class="amazingcarousel-title">iPhone</div>                    </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                     <div class="amazingcarousel-prev"></div>
                     <div class="amazingcarousel-next"></div

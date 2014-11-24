@@ -16,9 +16,6 @@ def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
   pictures = Picture.query.filter_by(project_id=project_id)
   videos = Video.query.filter_by(project_id=project_id)
-  for video in videos:
-    print "WHUTUP"
-    print video.video_url
   return render_template('project.html',
                             project=project,
                             pictures=pictures,
@@ -115,10 +112,9 @@ def get_pictures(album_id, project_id):
     picture_id_list = []
     response = urllib2.urlopen("https://api.flickr.com/services/rest/" + 
                               "?method=flickr.photosets.getPhotos" + 
-                              "&api_key=d8e4ad571b7215e272e295dfc8aac114" + 
+                              "&api_key=222e08ab0b34ce6127453800108c22e7" + 
                               "&photoset_id=" + album_id +
-                              "&format=rest" + 
-                              "&api_sig=82c0055d337d39cbe34f080b93a6ef59").read()
+                              "&format=rest").read()
     picture_xml_list = response.split('/>')
     for xml in picture_xml_list:
       if len(xml) > 50 and len(xml) < 150:
