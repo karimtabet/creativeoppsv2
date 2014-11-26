@@ -225,9 +225,13 @@ header.page4 .hover {
 	border-bottom-width: 4px;
 }
 .box img {
-	border: 3px solid #BDBDBD;
-	border-radius: 10px;
-	margin-bottom: 19px;
+	border: 1px solid #BDBDBD;
+	border-radius: 6px;
+	background-color: #334960;
+	max-width: 300px;
+}
+#page3 .grid_4 {
+	padding: 8px 0 24px;
 }
 .box .text1 {
 	margin-bottom: 1px;
@@ -258,10 +262,6 @@ header.page4 .hover {
 #page3 .box {
 	color: #2C2827;
 	float: left;
-}
-#page3 .box img {
-	margin-bottom: 21px;
-	background-color: #334960;
 }
 #ptitle {
 	font-size: 25px;
