@@ -6,6 +6,7 @@
 @import "../css/grid.css";
 @import "../css/superfish.css";
 @import "../css/style.css";
+@import "../css/initcarousel-1.css";
 
 .project_page {
   background-color: #67904B;
@@ -27,6 +28,17 @@
   font-size: 20px;
   font-style: normal;
   line-height: 30px;
+}
+.video { position: relative; }
+
+.video .play_btn {
+  position: absolute;
+  height: 100px;
+  width: 100px !important;
+  top: 30px;
+  left: 55px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
 }
 footer {
   width: 100%;
