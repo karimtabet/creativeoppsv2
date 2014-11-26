@@ -3,7 +3,7 @@ from flask.ext.login import login_user, logout_user, current_user, login_require
 from app import app, db, lm, oid
 from forms import ProjectForm
 from models import Admin, Project, Picture, Video
-import urllib2, urlparse
+import urllib2, urlparse, json
 
 @app.route('/')
 def index():
@@ -15,6 +15,8 @@ def index():
 def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
   pictures = Picture.query.filter_by(project_id=project_id)
+  for picture in pictures:
+    print picture.image_url
   videos = Video.query.filter_by(project_id=project_id)
   return render_template('project.html',
                             project=project,
@@ -86,6 +88,7 @@ def update_project(project_id):
       db.session.refresh(project)
       if project.album_url:
         album_id = project.album_url[project.album_url.find('sets/')+5:-1]
+        print project.id
         get_pictures(album_id, project.id)
       if project.video_urls:
         get_videos(project.video_urls, project.id)
@@ -109,29 +112,30 @@ def deleteProject(project_id):
       return redirect(url_for('admin'))
 
 def get_pictures(album_id, project_id):
+    print "YE " + project_id
     picture_id_list = []
-    response = urllib2.urlopen("https://api.flickr.com/services/rest/" + 
-                              "?method=flickr.photosets.getPhotos" + 
-                              "&api_key=222e08ab0b34ce6127453800108c22e7" + 
-                              "&photoset_id=" + album_id +
-                              "&format=rest").read()
-    picture_xml_list = response.split('/>')
-    for xml in picture_xml_list:
-      if len(xml) > 50 and len(xml) < 150:
-        picture_id = xml[13:24]
-        picture_secret = xml[34:44]
-        picture_server = xml[54:58]
-        picture_farm = xml[66:67]
+    response = urllib2.urlopen("https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos" + 
+                                "&api_key=28b8b728bfb3dda2af61f99f29d98334&photoset_id=" + album_id + 
+                                "&format=json&nojsoncallback=1").read()
+    response_json = json.loads(response)
 
-        picture_url = "https://www.flickr.com/photos/128639640@N03/" + picture_id + "/player/"
-        thumbnail_url = ("https://farm" + picture_farm + ".staticflickr.com/" + 
-                          picture_server + "/" + picture_id + "_" + picture_secret + "_q.jpg")
+    for line in response_json['photoset']['photo']:
+      photo_id = line['id']
+      response = urllib2.urlopen("https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&" +
+                                  "api_key=28b8b728bfb3dda2af61f99f29d98334&photo_id=" + photo_id +
+                                  "&format=json&nojsoncallback=1").read()
+      response_json = json.loads(response)
+      for line in response_json['sizes']['size']:
+        if line['label'] == 'Small':
+          thumbnail_url = line['source']
+        if line['label'] == 'Original':
+          picture_url = line['source']
 
         picture = Picture(thumbnail_url=thumbnail_url,
                         image_url=picture_url,
                         project_id=project_id)
         db.session.add(picture)
-        db.session.commit()
+    db.session.commit()
 
 def get_videos(video_urls, project_id):
   for video_url in video_urls.split(','):

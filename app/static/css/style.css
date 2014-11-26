@@ -205,7 +205,15 @@ header.page4 .hover {
 }
 .slogan h3 {
 	margin-bottom: 30px;
-	text-shadow: 3px 3px 2px rgba(150, 150, 150, 1);
+}
+#page2 .slogan {
+	text-shadow: 2px 2px 1px #0C5872;
+}
+#page3 .slogan h3 {
+	text-shadow: 2px 2px 1px #07690D;
+}
+#page4 .slogan h3 {
+	text-shadow: 2px 2px 1px #7E8804;
 }
 .text1 {
 	font-size: 19px;
@@ -302,7 +310,8 @@ header.page4 .hover {
 	position: relative;
 	top: 7px;
 	border: 1px solid #3c7f9f;
-	width: 100%;
+	width: 80%;
+	margin-left: 35%;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;
