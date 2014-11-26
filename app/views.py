@@ -15,8 +15,6 @@ def index():
 def project(project_id):
   project = Project.query.filter_by(id=project_id).first()
   pictures = Picture.query.filter_by(project_id=project_id)
-  for picture in pictures:
-    print picture.image_url
   videos = Video.query.filter_by(project_id=project_id)
   return render_template('project.html',
                             project=project,
@@ -88,7 +86,6 @@ def update_project(project_id):
       db.session.refresh(project)
       if project.album_url:
         album_id = project.album_url[project.album_url.find('sets/')+5:-1]
-        print project.id
         get_pictures(album_id, project.id)
       if project.video_urls:
         get_videos(project.video_urls, project.id)
@@ -112,13 +109,13 @@ def deleteProject(project_id):
       return redirect(url_for('admin'))
 
 def get_pictures(album_id, project_id):
-    print "YE " + project_id
-    picture_id_list = []
+    thumbnail_url = ''
+    picture_url = ''
+    last_picture = ''
     response = urllib2.urlopen("https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos" + 
                                 "&api_key=28b8b728bfb3dda2af61f99f29d98334&photoset_id=" + album_id + 
                                 "&format=json&nojsoncallback=1").read()
     response_json = json.loads(response)
-
     for line in response_json['photoset']['photo']:
       photo_id = line['id']
       response = urllib2.urlopen("https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&" +
@@ -131,10 +128,12 @@ def get_pictures(album_id, project_id):
         if line['label'] == 'Original':
           picture_url = line['source']
 
-        picture = Picture(thumbnail_url=thumbnail_url,
-                        image_url=picture_url,
-                        project_id=project_id)
-        db.session.add(picture)
+        if picture_url and picture_url != last_picture:
+          last_picture = picture_url
+          picture = Picture(thumbnail_url=thumbnail_url,
+                          image_url=picture_url,
+                          project_id=project_id)
+          db.session.add(picture)
     db.session.commit()
 
 def get_videos(video_urls, project_id):

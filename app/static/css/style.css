@@ -279,10 +279,14 @@ header.page4 .hover {
 	padding-right: 40px;
 	padding-bottom: 5px;
 }
+#pdesc {
+	float: right;
+	display: block;
+	width: 65%;
+}
 #pdesc p {
-	float: left;
+	text-align: left;
 	color: #000000;
-	padding-left: 13px;
 	padding-top: 5px;
 }
 #page3 .box .text1 {
