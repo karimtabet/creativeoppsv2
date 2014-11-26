@@ -123,7 +123,7 @@ def get_pictures(album_id, project_id):
                                   "&format=json&nojsoncallback=1").read()
       response_json = json.loads(response)
       for line in response_json['sizes']['size']:
-        if line['label'] == 'Small':
+        if line['label'] == 'Medium':
           thumbnail_url = line['source']
         if line['label'] == 'Original':
           picture_url = line['source']

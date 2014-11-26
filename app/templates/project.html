@@ -41,14 +41,31 @@
                         {% for video in videos %}
                         <li class="amazingcarousel-item">
                             <div class="amazingcarousel-item-container">
-                                <div class="amazingcarousel-image video"><a href="{{ video.video_url }}" class="html5lightbox" data-group="amazingcarousel-1"><img class="play_btn" src="{{ url_for('static', filename='img/playvid.png') }}"/><img src="{{ video.thumbnail_url }}"/></a></div>
+                                <div class="amazingcarousel-image video">
+                                    <a href="{{ video.video_url }}" class="html5lightbox" data-group="amazingcarousel-1">
+                                        <div style="width: 202px; height: 220px; overflow: hidden">
+                                            <div style="width: 202px; height: 220px; overflow: hidden; zoom: 2">
+                                                <img src="{{ video.thumbnail_url }}"/>
+                                            </div>
+                                            <img class="play_btn" src="{{ url_for('static', filename='img/playvid.png') }}"/>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </li>
                         {% endfor %}
                         {% for picture in pictures %}
                         <li class="amazingcarousel-item">
                             <div class="amazingcarousel-item-container">
-                                <div class="amazingcarousel-image"><a href="{{ picture.image_url }}" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ picture.thumbnail_url }}"/></a></div>
+                                <div class="amazingcarousel-image">
+                                    <a href="{{ picture.image_url }}" class="html5lightbox" data-group="amazingcarousel-1">
+                                        <div style="width: 202px; height: 220px; overflow: hidden">
+                                            <div style="width: 202px; height: 220px; overflow: hidden;">
+                                                <img class="picture" src="{{ picture.thumbnail_url }}"/>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </li>
                         {% endfor %}
@@ -81,4 +98,14 @@
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='js/amazingcarousel.js') }}"></script>
     <script src="{{ url_for('static', filename='js/initcarousel-1.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            jQuery(".picture").each(function(){
+                var img = jQuery(this);
+                if (img.height() < 280) {
+                    img.parent().css("zoom","2");
+                }
+            });
+        });
+    </script>
 </html>

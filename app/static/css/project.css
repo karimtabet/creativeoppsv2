@@ -24,6 +24,14 @@
   padding-top: 10px;
   padding-left: 4px;
 }
+.amazingcarousel-item {
+  opacity: 0.8;
+  filter: alpha(opacity=80);;
+}
+.amazingcarousel-item:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);;
+}
 #text_body {
   font-size: 20px;
   font-style: normal;
@@ -35,7 +43,7 @@
   position: absolute;
   height: 100px;
   width: 100px !important;
-  top: 30px;
+  top: 60px;
   left: 55px;
   opacity: 0.6;
   filter: alpha(opacity=60);
