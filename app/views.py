@@ -25,9 +25,8 @@ def project(project_id):
 @oid.loginhandler
 def login():
     if g.user is not None and g.user.is_authenticated():
-        return redirect(url_for('index'))
-    return oid.try_login('https://www.google.com/accounts/o8/id', 
-                              ask_for=['nickname', 'email'])
+        return redirect(url_for('admin'))
+    return oid.try_login('https://www.google.com/accounts/o8/id')
 
 @lm.user_loader
 def load_user(id):
@@ -47,7 +46,7 @@ def after_login(resp):
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(admin, remember = remember_me)
-    return redirect(url_for('index'))
+    return redirect(url_for('admin'))
 
 @app.before_request
 def before_request():
