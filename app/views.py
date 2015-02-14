@@ -57,7 +57,7 @@ def get_pictures(album_id, project_id):
                 picture = Picture(thumbnail_url=thumbnail_url,
                                   image_url=picture_url,
                                   project_id=project_id)
-            db.session.add(picture)
+                db.session.add(picture)
     db.session.commit()
 
 
@@ -109,6 +109,13 @@ def logout():
 class AdminView(ModelView):
     def is_accessible(self):
         return current_user.is_authenticated()
+
+    def on_model_change(self, form, model, is_created):
+        if model.album_url:
+            album_id = model.album_url[model.album_url.find('sets/')+5:-1]
+            get_pictures(album_id, model.id)
+        if model.video_urls:
+            get_videos(model.video_urls, model.id)
 
     def __init__(self, session, **kwargs):
         super(AdminView, self).__init__(Project, session, **kwargs)
