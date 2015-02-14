@@ -1,9 +1,10 @@
 from app import db
 
+
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nickname = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
+    username = db.Column(db.String(64), index=True, unique=True)
+    password = db.Column(db.String(120), index=True, unique=True)
 
     def is_authenticated(self):
         return True
@@ -21,14 +22,16 @@ class Admin(db.Model):
             return str(self.id)  # python 3
 
     def __repr__(self):
-        return '<Admin %r>' % (self.nickname)
+        return '<Admin %r>' % (self.username)
+
 
 class About(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     about_us = db.Column(db.String(4096))
 
+
 class Project(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(240))
     description = db.Column(db.String(380))
     location = db.Column(db.String(240))
@@ -41,23 +44,22 @@ class Project(db.Model):
     pictures = db.relationship('Picture', backref='projects', lazy='dynamic')
     videos = db.relationship('Video', backref='projects', lazy='dynamic')
 
-    def __repr__(self):
-        return '<Project %r>' % (self.body)
 
 class Picture(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     thumbnail_url = db.Column(db.String(140))
     image_url = db.Column(db.String(140))
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
 
     def __repr__(self):
-        return '<Picture %r>' % (self.body)
+        return self.image_url
+
 
 class Video(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     video_url = db.Column(db.String(140))
     thumbnail_url = db.Column(db.String(140))
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
 
     def __repr__(self):
-        return '<Video %r>' % (self.body)
+        return self.video_url
