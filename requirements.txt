@@ -1,6 +1,6 @@
 flask
 flask-sqlalchemy
 sqlalchemy-migrate
-flask-wtf
-flask-openid
 flask-login
+flask-admin
+passlib
