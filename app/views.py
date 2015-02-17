@@ -34,7 +34,7 @@ def get_pictures(album_id, project_id):
     response = urllib2.urlopen(
         "https://api.flickr.com/services/rest/" +
         "?method=flickr.photosets.getPhotos" +
-        "&api_key=28b8b728bfb3dda2af61f99f29d98334&photoset_id=" +
+        "&api_key=c5abbe4d732f631c72a743855fc5b47c&photoset_id=" +
         album_id + "&format=json&nojsoncallback=1"
       ).read()
     response_json = json.loads(response)
@@ -43,7 +43,7 @@ def get_pictures(album_id, project_id):
         response = urllib2.urlopen(
             "https://api.flickr.com/services/rest/" +
             "?method=flickr.photos.getSizes&" +
-            "api_key=28b8b728bfb3dda2af61f99f29d98334&photo_id=" + photo_id +
+            "api_key=c5abbe4d732f631c72a743855fc5b47c&photo_id=" + photo_id +
             "&format=json&nojsoncallback=1").read()
         response_json = json.loads(response)
         for line in response_json['sizes']['size']:
