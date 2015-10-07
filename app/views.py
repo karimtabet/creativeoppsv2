@@ -1,12 +1,13 @@
-import urllib2
-import urlparse
 import json
+from urllib import parse
+from urllib.request import urlopen
 from flask import render_template, redirect, url_for, request
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.login import login_user, logout_user, current_user
 from passlib.hash import sha256_crypt
+
 from app import app, db, admin, login_manager
-from models import Project, Picture, Video, Admin
+from app.models import Project, Picture, Video, Admin
 
 
 @app.route('/')
@@ -31,7 +32,7 @@ def get_pictures(album_id, project_id):
     thumbnail_url = ''
     picture_url = ''
     last_picture = ''
-    response = urllib2.urlopen(
+    response = urlopen(
         "https://api.flickr.com/services/rest/" +
         "?method=flickr.photosets.getPhotos" +
         "&api_key=c5abbe4d732f631c72a743855fc5b47c&photoset_id=" +
@@ -40,7 +41,7 @@ def get_pictures(album_id, project_id):
     response_json = json.loads(response)
     for line in response_json['photoset']['photo']:
         photo_id = line['id']
-        response = urllib2.urlopen(
+        response = urlopen(
             "https://api.flickr.com/services/rest/" +
             "?method=flickr.photos.getSizes&" +
             "api_key=c5abbe4d732f631c72a743855fc5b47c&photo_id=" + photo_id +
@@ -64,8 +65,8 @@ def get_pictures(album_id, project_id):
 def get_videos(video_urls, project_id):
     for video_url in video_urls.split(','):
         video_url = video_url.strip()
-        url_data = urlparse.urlparse(video_url)
-        query = urlparse.parse_qs(url_data.query)
+        url_data = parse.urlparse(video_url)
+        query = parse.parse_qs(url_data.query)
         video_id = query["v"][0]
         thumbnail_url = (
             'http://img.youtube.com/vi/' +
