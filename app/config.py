@@ -11,7 +11,8 @@ config_schema = Schema({
         Required("host"): str,
         Required("port"): int,
         Required("db"): str
-    }
+    },
+    Required("flickr_api_key"): str
 })
 
 with open("/opt/creativeopportunities.yml") as configuration_file:
