@@ -1,7 +1,10 @@
+from uuid import uuid4
+from datetime import datetime
+
 from flask.ext.testing import TestCase
 
 from app import app, db
-from app.models import Base
+from app.models import Base, Project
 
 
 class CreativeOpportunitiesTestCase(TestCase):
@@ -12,6 +15,22 @@ class CreativeOpportunitiesTestCase(TestCase):
         db.session.close()
         for table in reversed(Base.metadata.sorted_tables):
             db.session.execute(
-                "delete from {table_name};"
+                'delete from {table_name};'
                 .format(table_name=table.name)
             )
+
+    def insert_n_projects(self, n):
+        projects = []
+        for index in range(n):
+            project = Project(
+                project_uuid=uuid4(),
+                title='Test Project',
+                description='This is a test project.',
+                location='Some place nice',
+                body='Test project stuff',
+                datetime=datetime.utcnow(),
+                avatar_url='http://lorempixel.com/400/200/'
+            )
+            db.session.add(project)
+            projects.append(project)
+        return projects
