@@ -1,65 +1,67 @@
-from app import db
+from datetime import datetime
+
+from sqlalchemy import MetaData, Column, String, DateTime, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.postgresql import UUID
+
+convention = {
+    'ix': 'ix_%(column_0_label)s',
+    'uq': 'uq_%(table_name)s_%(column_0_name)s',
+    'ck': 'ck_%(table_name)s_%(constraint_name)s',
+    'fk': 'fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s',
+    'pk': 'pk_%(table_name)s'
+}
+
+metadata = MetaData(naming_convention=convention)
+
+Base = declarative_base(metadata=metadata)
 
 
-class Admin(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    password = db.Column(db.String(120), index=True, unique=True)
+class Project(Base):
+    __tablename__ = 'projects'
 
-    def is_authenticated(self):
-        return True
+    project_uuid = Column(UUID(as_uuid=True), primary_key=True)
+    title = Column(String, nullable=False)
+    description = Column(String, nullable=False)
+    location = Column(String, nullable=False)
+    body = Column(String, nullable=False)
+    datetime = Column(DateTime(timezone=True), nullable=False,
+                      default=datetime.utcnow)
+    avatar_url = Column(String, nullable=False)
 
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        try:
-            return unicode(self.id)  # python 2
-        except NameError:
-            return str(self.id)  # python 3
-
-    def __repr__(self):
-        return '<Admin %r>' % (self.username)
-
-
-class About(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    about_us = db.Column(db.String(4096))
-
-
-class Project(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(240))
-    description = db.Column(db.String(380))
-    location = db.Column(db.String(240))
-    body = db.Column(db.String(2048))
-    date = db.Column(db.String(120))
-    avatar_url = db.Column(db.String(380))
-    album_url = db.Column(db.String(380))
-    thumbnail_url = db.Column(db.String(380))
-    video_urls = db.Column(db.String(860))
-    pictures = db.relationship('Picture', backref='projects', lazy='dynamic')
-    videos = db.relationship('Video', backref='projects', lazy='dynamic')
-
-
-class Picture(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    thumbnail_url = db.Column(db.String(140))
-    image_url = db.Column(db.String(140))
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
+    images = relationship("Image", backref="project")
+    videos = relationship("Video", backref="project")
 
     def __repr__(self):
-        return self.image_url
+        return '<Project {title}>'.format(title=self.title)
 
 
-class Video(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    video_url = db.Column(db.String(140))
-    thumbnail_url = db.Column(db.String(140))
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
+class Image(Base):
+    __tablename__ = 'images'
+
+    image_url = Column(String, primary_key=True, nullable=False)
+    thumbnail_url = Column(String, nullable=False)
+    project_uuid = Column(
+        ForeignKey('projects.project_uuid'),
+        nullable=False,
+        index=True
+    )
 
     def __repr__(self):
-        return self.video_url
+        return '<Image {url}>'.format(url=self.image_url)
+
+
+class Video(Base):
+    __tablename__ = 'videos'
+
+    video_url = Column(String, primary_key=True, nullable=False)
+    thumbnail_url = Column(String, nullable=False)
+    project_uuid = Column(
+        ForeignKey('projects.project_uuid'),
+        nullable=False,
+        index=True
+    )
+
+    def __repr__(self):
+        return '<Video {url}>'.format(url=self.video_url)
