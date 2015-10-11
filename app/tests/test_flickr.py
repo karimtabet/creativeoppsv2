@@ -11,13 +11,12 @@ class TestFlickr(CreativeOpportunitiesTestCase):
         project = self.insert_n_projects(1)[0]
 
         get_pictures(
-            'https://www.flickr.com/photos/128639640@N03/'
-            'sets/72157648806036881/',
+            '72157648806036881',
             project.project_uuid
         )
-        pictures = db.session.query(Image).all()
+        images = db.session.query(Image).all()
 
         assert_that(
-            len(pictures),
-            is_(1)
+            len(images),
+            is_(28)
         )
