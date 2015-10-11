@@ -3,7 +3,7 @@ from datetime import datetime
 
 from flask.ext.testing import TestCase
 
-from app import app, db
+from app.app import app, db
 from app.models import Base, Project
 
 
