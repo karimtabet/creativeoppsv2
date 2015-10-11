@@ -1,6 +1,6 @@
 from urllib import parse
 
-from app import db
+from app.app import db
 from app.models import Video
 
 
@@ -11,7 +11,7 @@ def get_videos(video_urls, project_id):
         query = parse.parse_qs(url_data.query)
         video_id = query["v"][0]
         thumbnail_url = (
-            'http://img.youtube.com/vi/' +
+            'http://img.youtube.com/vi/{video_id}' +
             video_id + '/default.jpg'
         )
         video = Video(video_url=video_url,

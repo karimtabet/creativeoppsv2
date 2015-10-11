@@ -1,13 +1,13 @@
 import json
 import urlopen
 
-from app import db
-from app.models import Picture
+from app.app import db
+from app.models import Image
 
 
 def get_pictures(album_id, project_id):
     thumbnail_url = ''
-    picture_url = ''
+    image_url = ''
     last_picture = ''
     response = urlopen(
         "https://api.flickr.com/services/rest/" +
@@ -29,12 +29,12 @@ def get_pictures(album_id, project_id):
             if line['label'] == 'Medium':
                 thumbnail_url = line['source']
             if line['label'] == 'Original':
-                picture_url = line['source']
+                image_url = line['source']
 
-            if picture_url and picture_url != last_picture:
-                last_picture = picture_url
-                picture = Picture(thumbnail_url=thumbnail_url,
-                                  image_url=picture_url,
-                                  project_id=project_id)
-                db.session.add(picture)
+            if image_url and image_url != last_picture:
+                last_picture = image_url
+                image = Image(thumbnail_url=thumbnail_url,
+                              image_url=image_url,
+                              project_id=project_id)
+                db.session.add(image)
     db.session.commit()
