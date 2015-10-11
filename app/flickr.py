@@ -5,7 +5,7 @@ from app.app import db
 from app.models import Image
 
 
-def get_pictures(album_id, project_id):
+def get_pictures(album_id, project_uuid):
     thumbnail_url = ''
     image_url = ''
     last_picture = ''
@@ -35,6 +35,6 @@ def get_pictures(album_id, project_id):
                 last_picture = image_url
                 image = Image(thumbnail_url=thumbnail_url,
                               image_url=image_url,
-                              project_id=project_id)
+                              project_uuid=project_uuid)
                 db.session.add(image)
     db.session.commit()
