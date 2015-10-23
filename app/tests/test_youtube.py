@@ -30,3 +30,19 @@ class TestYoutube(CreativeOpportunitiesTestCase):
             project.videos[0].thumbnail_url,
             is_('http://img.youtube.com/vi/Lbjru5CQIW4/default.jpg')
         )
+
+    def test_get_3_videos(self):
+        project = self.insert_n_projects(1)[0]
+
+        get_videos(
+            'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
+            'https://www.youtube.com/watch?v=VEMWyBWw0cA,'
+            'https://www.youtube.com/watch?v=7Ny-D2MCAfg',
+            project.project_uuid
+        )
+        project = db.session.query(Project).one()
+
+        assert_that(
+            project.videos,
+            has_length(3)
+        )
