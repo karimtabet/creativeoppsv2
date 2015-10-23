@@ -1,8 +1,8 @@
-from hamcrest import assert_that, is_
+from hamcrest import assert_that, has_length
 
 from app.app import db
 from app.flickr import get_pictures
-from app.models import Image
+from app.models import Project
 from app.tests.utils import CreativeOpportunitiesTestCase
 
 
@@ -14,9 +14,9 @@ class TestFlickr(CreativeOpportunitiesTestCase):
             '72157648806036881',
             project.project_uuid
         )
-        images = db.session.query(Image).all()
+        project = db.session.query(Project).one()
 
         assert_that(
-            len(images),
-            is_(28)
+            project.images,
+            has_length(28)
         )
