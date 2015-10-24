@@ -1,6 +1,7 @@
 from flask import render_template, request, flash
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
+from flask.ext.admin.model.template import macro
 from flask.ext.wtf import Form
 from wtforms import TextField, TextAreaField, SelectField
 from wtforms.widgets import TextArea
@@ -44,19 +45,21 @@ class CKTextAreaField(TextAreaField):
 
 
 class ProjectModelView(ModelView):
+    list_template = 'admin/list_projects.html'
     form_columns = [
       'title',
-      'avatar_url',
       'location',
       'datetime',
+      'avatar_url',
       'description',
       'body',
       'images',
       'videos'
     ]
-    form_overrides = {
-        'body': CKTextAreaField
-    }
+    column_list = ('avatar_url', 'title', 'location', 'datetime')
+    column_formatters = {'avatar_url': macro("preview_avatar")}
+    column_labels = {'avatar_url': 'Avatar'}
+    form_overrides = {'body': CKTextAreaField}
 
     def on_model_change(self, form, model, is_created):
         model.id = form.title.data.lower().replace(' ', '-')
