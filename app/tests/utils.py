@@ -1,4 +1,3 @@
-from uuid import uuid4
 from datetime import datetime
 
 from flask.ext.testing import TestCase
@@ -23,7 +22,7 @@ class CreativeOpportunitiesTestCase(TestCase):
         projects = []
         for index in range(n):
             project = Project(
-                project_uuid=uuid4(),
+                id='test-project',
                 title='Test Project',
                 description='This is a test project.',
                 location='Some place nice',
