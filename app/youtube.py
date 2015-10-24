@@ -4,7 +4,7 @@ from app.app import db
 from app.models import Video
 
 
-def get_videos(video_urls, project_uuid):
+def get_videos(video_urls, project_id):
     for video_url in video_urls.split(','):
         video_url = video_url.strip()
         url_data = parse.urlparse(video_url)
@@ -16,6 +16,6 @@ def get_videos(video_urls, project_uuid):
         )
         video = Video(video_url=video_url,
                       thumbnail_url=thumbnail_url,
-                      project_uuid=project_uuid)
+                      project_id=project_id)
         db.session.add(video)
         db.session.commit()

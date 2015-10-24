@@ -12,7 +12,7 @@ class TestYoutube(CreativeOpportunitiesTestCase):
 
         get_videos(
             'https://www.youtube.com/watch?v=Lbjru5CQIW4',
-            project.project_uuid
+            project.id
         )
         project = db.session.query(Project).first()
 
@@ -38,7 +38,7 @@ class TestYoutube(CreativeOpportunitiesTestCase):
             'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
             'https://www.youtube.com/watch?v=VEMWyBWw0cA,'
             'https://www.youtube.com/watch?v=7Ny-D2MCAfg',
-            project.project_uuid
+            project.id
         )
         project = db.session.query(Project).one()
 
