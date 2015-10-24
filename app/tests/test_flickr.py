@@ -20,3 +20,21 @@ class TestFlickr(CreativeOpportunitiesTestCase):
             project.images,
             has_length(28)
         )
+
+    def test_get_duplicate_pictures(self):
+        project = self.insert_n_projects(1)[0]
+
+        get_pictures(
+            '72157648806036881',
+            project.id
+        )
+        get_pictures(
+            '72157648806036881',
+            project.id
+        )
+        project = db.session.query(Project).one()
+
+        assert_that(
+            project.images,
+            has_length(28)
+        )

@@ -1,4 +1,5 @@
 import requests
+from sqlalchemy.exc import IntegrityError
 
 from app.app import db
 from app.models import Image
@@ -45,5 +46,9 @@ def get_pictures(album_id, project_id):
                 image = Image(thumbnail_url=thumbnail_url,
                               image_url=image_url,
                               project_id=project_id)
-                db.session.add(image)
-    db.session.commit()
+                try:
+                    db.session.add(image)
+                    db.session.commit()
+                except IntegrityError:
+                    db.session.rollback()
+                    pass
