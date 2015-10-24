@@ -5,7 +5,7 @@ from app.models import Image
 from app.config import config
 
 
-def get_pictures(album_id, project_uuid):
+def get_pictures(album_id, project_id):
     flickr_api_key = config["flickr_api_key"]
     thumbnail_url = ''
     image_url = ''
@@ -44,6 +44,6 @@ def get_pictures(album_id, project_uuid):
                 last_picture = image_url
                 image = Image(thumbnail_url=thumbnail_url,
                               image_url=image_url,
-                              project_uuid=project_uuid)
+                              project_id=project_id)
                 db.session.add(image)
     db.session.commit()

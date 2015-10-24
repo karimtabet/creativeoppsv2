@@ -12,7 +12,7 @@ class TestFlickr(CreativeOpportunitiesTestCase):
 
         get_pictures(
             '72157648806036881',
-            project.project_uuid
+            project.id
         )
         project = db.session.query(Project).one()
 
