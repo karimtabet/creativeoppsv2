@@ -33,7 +33,7 @@ def upgrade():
     sa.Column('thumbnail_url', sa.String(), nullable=False),
     sa.Column('project_id', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['project_id'], ['projects.id'], name=op.f('fk_images_project_id_projects')),
-    sa.PrimaryKeyConstraint('image_url', name=op.f('pk_images'))
+    sa.PrimaryKeyConstraint('image_url', 'project_id', name=op.f('pk_images'))
     )
     op.create_index(op.f('ix_images_project_id'), 'images', ['project_id'], unique=False)
     op.create_table('videos',
@@ -41,7 +41,7 @@ def upgrade():
     sa.Column('thumbnail_url', sa.String(), nullable=False),
     sa.Column('project_id', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['project_id'], ['projects.id'], name=op.f('fk_videos_project_id_projects')),
-    sa.PrimaryKeyConstraint('video_url', name=op.f('pk_videos'))
+    sa.PrimaryKeyConstraint('video_url', 'project_id', name=op.f('pk_videos'))
     )
     op.create_index(op.f('ix_videos_project_id'), 'videos', ['project_id'], unique=False)
     ### end Alembic commands ###

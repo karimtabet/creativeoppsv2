@@ -40,12 +40,12 @@ class Image(Base):
     __tablename__ = 'images'
 
     image_url = Column(String, primary_key=True)
-    thumbnail_url = Column(String, nullable=False)
     project_id = Column(
         ForeignKey('projects.id'),
-        nullable=False,
+        primary_key=True,
         index=True
     )
+    thumbnail_url = Column(String, nullable=False)
 
     def __repr__(self):
         return '<Image {url}>'.format(url=self.image_url)
@@ -55,12 +55,12 @@ class Video(Base):
     __tablename__ = 'videos'
 
     video_url = Column(String, primary_key=True)
-    thumbnail_url = Column(String, nullable=False)
     project_id = Column(
         ForeignKey('projects.id'),
-        nullable=False,
+        primary_key=True,
         index=True
     )
+    thumbnail_url = Column(String, nullable=False)
 
     def __repr__(self):
         return '<Video {url}>'.format(url=self.video_url)
