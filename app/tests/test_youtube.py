@@ -46,3 +46,19 @@ class TestYoutube(CreativeOpportunitiesTestCase):
             project.videos,
             has_length(3)
         )
+
+    def test_get_duplicate_video(self):
+        project = self.insert_n_projects(1)[0]
+
+        get_videos(
+            'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
+            'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
+            'https://www.youtube.com/watch?v=Lbjru5CQIW4',
+            project.id
+        )
+        project = db.session.query(Project).one()
+
+        assert_that(
+            project.videos,
+            has_length(1)
+        )
