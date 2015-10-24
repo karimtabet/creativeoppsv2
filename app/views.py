@@ -2,13 +2,14 @@ from flask import render_template, request, flash
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.wtf import Form
-from wtforms import TextField, TextAreaField
+from wtforms import TextField, TextAreaField, SelectField
 from wtforms.widgets import TextArea
 from wtforms.validators import Required
 
 from app.app import app, db, admin
 from app.models import Project, Image, Video
 from app.flickr import get_pictures
+from app.youtube import get_videos
 
 
 @app.route('/')
@@ -61,13 +62,18 @@ class ProjectModelView(ModelView):
         model.id = form.title.data.lower().replace(' ', '-')
 
 admin.add_view(
-  ProjectModelView(Project, db.session, endpoint='project_model_view')
+  ProjectModelView(Project, db.session, endpoint='projects')
 )
 
 
 class GetFlickrForm(Form):
+    projects = db.session.query(Project).all()
     album_id = TextField('Album ID', [Required()])
-    project_id = TextField('Project ID', [Required()])
+    project_id = SelectField(
+      'Project',
+      choices=[(project.id, project.title) for project in projects],
+      validators=[Required()]
+    )
 
 
 class GetFlickrView(BaseView):
@@ -79,7 +85,30 @@ class GetFlickrView(BaseView):
             flash('Succesffully added images to {project_id}'.format(
               project_id=form.data["project_id"])
             )
-            # return self.render(url_for())
         return self.render('admin/get_flickr.html', form=form)
 
 admin.add_view(GetFlickrView(name='Get Flickr Content', url='get_flickr'))
+
+
+class GetYoutubeForm(Form):
+    projects = db.session.query(Project).all()
+    video_urls = TextField('Video URLs (comma separated)', [Required()])
+    project_id = SelectField(
+      'Project',
+      choices=[(project.id, project.title) for project in projects],
+      validators=[Required()]
+    )
+
+
+class GetYoutubeView(BaseView):
+    @expose('/', methods=('GET', 'POST'))
+    def index(self):
+        form = GetYoutubeForm(request.form)
+        if form.validate_on_submit():
+            get_videos(form.data["video_urls"], form.data["project_id"])
+            flash('Succesffully added images to {project_id}'.format(
+              project_id=form.data["project_id"])
+            )
+        return self.render('admin/get_youtube.html', form=form)
+
+admin.add_view(GetYoutubeView(name='Get Youtube Content', url='get_youtube'))
