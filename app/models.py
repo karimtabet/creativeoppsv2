@@ -3,7 +3,6 @@ from datetime import datetime
 from sqlalchemy import MetaData, Column, String, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from sqlalchemy.dialects.postgresql import UUID
 
 convention = {
     'ix': 'ix_%(column_0_label)s',
@@ -21,7 +20,7 @@ Base = declarative_base(metadata=metadata)
 class Project(Base):
     __tablename__ = 'projects'
 
-    project_uuid = Column(UUID(as_uuid=True), primary_key=True)
+    id = Column(String, primary_key=True)
     title = Column(String, nullable=False)
     description = Column(String, nullable=False)
     location = Column(String, nullable=False)
@@ -40,10 +39,10 @@ class Project(Base):
 class Image(Base):
     __tablename__ = 'images'
 
-    image_url = Column(String, primary_key=True, nullable=False)
+    image_url = Column(String, primary_key=True)
     thumbnail_url = Column(String, nullable=False)
-    project_uuid = Column(
-        ForeignKey('projects.project_uuid'),
+    project_id = Column(
+        ForeignKey('projects.id'),
         nullable=False,
         index=True
     )
@@ -55,10 +54,10 @@ class Image(Base):
 class Video(Base):
     __tablename__ = 'videos'
 
-    video_url = Column(String, primary_key=True, nullable=False)
+    video_url = Column(String, primary_key=True)
     thumbnail_url = Column(String, nullable=False)
-    project_uuid = Column(
-        ForeignKey('projects.project_uuid'),
+    project_id = Column(
+        ForeignKey('projects.id'),
         nullable=False,
         index=True
     )
