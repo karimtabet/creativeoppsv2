@@ -1,0 +1,14 @@
+{% extends 'admin/model/list.html' %}
+
+{% macro preview_avatar(model, column) %}
+{% if model.image != None %}
+<img
+   class="img-thumbnail"
+   width="100"
+   src="{{ model.avatar_url }}"
+   >
+{% else %}
+No cover image for this curated list
+{% endif %}
+</a>
+{% endmacro %}
