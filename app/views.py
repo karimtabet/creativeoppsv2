@@ -9,19 +9,19 @@ from app.youtube import get_videos as get_youtube_videos
 
 @app.route('/')
 def index():
-    projects = Project.query.all()
+    projects = db.session.query(Project).all()
     return render_template('index.html',
                            projects=projects)
 
 
 @app.route('/project/<project_id>', methods=['GET'])
 def project(project_id):
-    project = Project.query.filter_by(id=project_id).first()
-    pictures = Image.query.filter_by(project_id=project_id)
-    videos = Video.query.filter_by(project_id=project_id)
+    project = db.session.query(Project).filter(id=project_id).first()
+    images = db.session.query(Image).filter(project_id=project_id).all()
+    videos = db.session.query(Video).filter(project_id=project_id).all()
     return render_template('project.html',
                            project=project,
-                           pictures=pictures,
+                           images=images,
                            videos=videos)
 
 
