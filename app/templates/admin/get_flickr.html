@@ -1,0 +1,9 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+{% block body %}
+    <h4>Get Flickr Album</h4>
+    {% call lib.form_tag() %}
+      {{ lib.render_form_fields(form) }}
+      <input class="btn btn-prmary" type="submit" />
+    {% endcall %}
+{% endblock %}
