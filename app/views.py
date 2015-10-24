@@ -59,7 +59,7 @@ class ProjectModelView(ModelView):
     column_list = ('avatar_url', 'title', 'location', 'datetime')
     column_formatters = {'avatar_url': macro("preview_avatar")}
     column_labels = {'avatar_url': 'Avatar'}
-    form_overrides = {'body': CKTextAreaField}
+    form_overrides = {'body': CKTextAreaField, 'description': CKTextAreaField}
 
     def on_model_change(self, form, model, is_created):
         model.id = form.title.data.lower().replace(' ', '-')
@@ -95,7 +95,7 @@ admin.add_view(GetFlickrView(name='Get Flickr Content', url='get_flickr'))
 
 class GetYoutubeForm(Form):
     projects = db.session.query(Project).all()
-    video_urls = TextField('Video URLs (comma separated)', [Required()])
+    video_urls = CKTextAreaField('Video URLs (comma separated)', [Required()])
     project_id = SelectField(
       'Project',
       choices=[(project.id, project.title) for project in projects],
