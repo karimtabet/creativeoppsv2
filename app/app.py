@@ -12,6 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
     )
 )
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 3
+app.config['SECRET_KEY'] = 'very_secret_key'
 
 admin = Admin(app)
 db = SQLAlchemy(app)
