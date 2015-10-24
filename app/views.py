@@ -1,10 +1,14 @@
-from flask import render_template
+from flask import render_template, request, flash
+from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
-from wtforms import TextAreaField
+from flask.ext.wtf import Form
+from wtforms import TextField, TextAreaField
 from wtforms.widgets import TextArea
+from wtforms.validators import Required
 
 from app.app import app, db, admin
 from app.models import Project, Image, Video
+from app.flickr import get_pictures
 
 
 @app.route('/')
@@ -59,3 +63,23 @@ class ProjectModelView(ModelView):
 admin.add_view(
   ProjectModelView(Project, db.session, endpoint='project_model_view')
 )
+
+
+class GetFlickrForm(Form):
+    album_id = TextField('Album ID', [Required()])
+    project_id = TextField('Project ID', [Required()])
+
+
+class GetFlickrView(BaseView):
+    @expose('/', methods=('GET', 'POST'))
+    def index(self):
+        form = GetFlickrForm(request.form)
+        if form.validate_on_submit():
+            get_pictures(form.data["album_id"], form.data["project_id"])
+            flash('Succesffully added images to {project_id}'.format(
+              project_id=form.data["project_id"])
+            )
+            # return self.render(url_for())
+        return self.render('admin/get_flickr.html', form=form)
+
+admin.add_view(GetFlickrView(name='Get Flickr Content', url='get_flickr'))
