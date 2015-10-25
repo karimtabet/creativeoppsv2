@@ -6,449 +6,449 @@
 <html lang="en-US">
 <!--<![endif]-->
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
 
-<title>Kids Land - Responsive Children HTML5 Template</title>
+    <title>Kids Land - Responsive Children HTML5 Template</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900%7CPacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900%7CPacifico' rel='stylesheet' type='text/css'>
 
-<!-- Favicons -->
-<link rel="shortcut icon" href="{{ url_for('static', filename='css/images/favicon.ico' ) }}">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='css/images/favicon.ico' ) }}">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/css/bootstrap.min.css') }}" media="all" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" media="all" />
-<link rel="stylesheet" href="{{ url_for('static', filename='js/prettyphoto/css/prettyPhoto.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/css/bootstrap.min.css') }}" media="all" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/prettyphoto/css/prettyPhoto.css') }}" type="text/css" media="all" />
 
 </head>
 
 <body>
 
 
-<div id="main" class="wrap">
-
-<header id="header-bar" class="wrap">
-  
-   <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="clearfix">
-            <div id="logo"><a href="#"><img class="img-responsive" src="{{ url_for('static', filename='images/logo.png') }}" alt=""/></a></div>
-            
-            <nav class="navbar navbar-custom" role="navigation">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            </div>
-            <div class="collapse navbar-collapse" id="collapse-navigation">
-              <ul class="nav menu-nav">
-                <li class="current_page_item"><a href="#">Home</a></li>
-                <li><a href="about.html">About</a>
-                 <ul class="sub-menu">
-       <li><a href="faq.html">FAQ</a></li>
-       <li><a href="testimonials.html">Testimonials</a></li>
-       <li><a href="pricing-table.html">Pricing Table</a></li>
-       <li><a href="404-page.html">404 Page</a></li>
-   </ul>
-                </li>
-                <li><a href="teachers.html">Teachers</a>
-                <ul class="sub-menu">
-              <li><a href="single-teacher.html">Single Teacher</a></li>
-               </ul>
-                </li>
-                <li><a href="gallery-3col.html">Galleries</a>
-      <ul class="sub-menu">
-       <li><a href="gallery-2col.html">2 Columns</a></li>
-       <li><a href="gallery-3col.html">3 Columns</a></li>
-       <li><a href="gallery-4col.html">4 Columns</a></li>
-       <li><a href="single-gallery-1.html">Single Gallery Album</a></li>
-   </ul>
-      </li>
-                <li><a href="events-3col.html">Events</a>
-                <ul class="sub-menu">
-       <li><a href="events-2col.html">2 Columns</a></li>
-       <li><a href="events-3col.html">3 Columns</a></li>
-       <li><a href="single-event.html">Single Event</a></li>
-                </ul>
-                </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-            
-          </nav>
-           
-          </div><!--.clearfix-->
-  
-      </div><!--.col-md-12-->
-    </div><!--.row-->
-    </div><!--.container-->
-  </header><!-- header-bar-->
-  
-
-<section id="slider-home" class="wrap">
-
-    <div class="container"> 
-    <div class="row">
-    <div class="col-md-12">
-
-    <div class="flexslider flexslider-home">
-      <ul class="slides">
-        <li>
-        <div class="row">
-        <div class="col-md-6">
-        
-         
-          <div class="flex-caption">
-            <h1>We care about the children education</h1>
-            <h6>Vivamus non dui ut diam commodo molestie. Proin at commodo ipsum. Praesent pulvinar etus vel sem euismod sagittis. Vestibulum ante ipsum primis in faucibus.</h6>
-            <a href="#" class="btn-white margin-t32">Read More</a>
-          </div>
-          
-          </div><!--.col-md-6-->
-          
-           <div class="col-md-6">
-           <div class="flex-img">
-           <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-1.png') }} alt="" />
-           </div>
-           </div><!--.col-md-6-->
-           
-         </div> <!--.row-->
-        </li>
-        
-        <li>
-        <div class="row">
-        <div class="col-md-6">
-        
-         
-          <div class="flex-caption">
-            <h1>Great things to do: games, stories, activities</h1>
-            <h6>Proin bibendum lorem vitae congue malesuada. Fusce eu rutrum diam. Praesent interdum dapibus ipsum. Quisque lobortis, velit eget laoreet blandit.</h6>
-            <a href="#" class="btn-white margin-t32">Read More</a>
-
-          </div>
-          
-          </div><!--.col-md-6-->
-          
-           <div class="col-md-6">
-           <div class="flex-img">
-           <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-2.png') }} alt="" />
-           </div>
-           </div><!--.col-md-6-->
-           
-         </div> <!--.row-->
-        </li>
-        
-        <li>
-        <div class="row">
-        <div class="col-md-6">
-        
-         
-          <div class="flex-caption">
-            <h1>Easy learning with new technologies</h1>
-            <h6>Nulla justo enim, imperdiet et iaculis et, varius non odio. In hac habitasse platea dictumst. In hac habitasse platea dictumst.</h6>
-            <a href="#" class="btn-white margin-t32">Read More</a>
+    <div id="main" class="wrap">
+
+        <header id="header-bar" class="wrap">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="clearfix">
+                            <div id="logo"><a href="#"><img class="img-responsive" src="{{ url_for('static', filename='images/logo.png') }}" alt=""/></a></div>
+
+                            <nav class="navbar navbar-custom" role="navigation">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                                </div>
+                                <div class="collapse navbar-collapse" id="collapse-navigation">
+                                    <ul class="nav menu-nav">
+                                        <li class="current_page_item"><a href="#">Home</a></li>
+                                        <li><a href="about.html">About</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="faq.html">FAQ</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                                <li><a href="pricing-table.html">Pricing Table</a></li>
+                                                <li><a href="404-page.html">404 Page</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="teachers.html">Teachers</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="single-teacher.html">Single Teacher</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="gallery-3col.html">Galleries</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="gallery-2col.html">2 Columns</a></li>
+                                                <li><a href="gallery-3col.html">3 Columns</a></li>
+                                                <li><a href="gallery-4col.html">4 Columns</a></li>
+                                                <li><a href="single-gallery-1.html">Single Gallery Album</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="events-3col.html">Events</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="events-2col.html">2 Columns</a></li>
+                                                <li><a href="events-3col.html">3 Columns</a></li>
+                                                <li><a href="single-event.html">Single Event</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+
+                            </nav>
+
+                        </div><!--.clearfix-->
+
+                    </div><!--.col-md-12-->
+                </div><!--.row-->
+            </div><!--.container-->
+        </header><!-- header-bar-->
+
+
+        <section id="slider-home" class="wrap">
+
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="flexslider flexslider-home">
+                            <ul class="slides">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+
+                                            <div class="flex-caption">
+                                                <h1>We care about the children education</h1>
+                                                <h6>Vivamus non dui ut diam commodo molestie. Proin at commodo ipsum. Praesent pulvinar etus vel sem euismod sagittis. Vestibulum ante ipsum primis in faucibus.</h6>
+                                                <a href="#" class="btn-white margin-t32">Read More</a>
+                                            </div>
+
+                                        </div><!--.col-md-6-->
+
+                                        <div class="col-md-6">
+                                            <div class="flex-img">
+                                                <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-1.png') }} alt="" />
+                                            </div>
+                                        </div><!--.col-md-6-->
+
+                                    </div> <!--.row-->
+                                </li>
 
-          </div>
-          
-          </div><!--.col-md-6-->
-          
-           <div class="col-md-6">
-           <div class="flex-img">
-           <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-3.png') }} alt="" />
-           </div>
-           </div><!--.col-md-6-->
-           
-         </div> <!--.row-->
-        </li>
-    
-       
-      </ul>
-    </div><!--end flexslider-->
-    
-    </div><!--.col-md-12-->
-    </div><!--.row-->
-    </div><!--.container-->
-    
-  </section><!--slider-home-->
-  <div class="zz-bottom"></div>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-6">
 
-<section id="home-features" class="wrap margin-t72">
 
-<div class="container">
-<div class="row">
+                                            <div class="flex-caption">
+                                                <h1>Great things to do: games, stories, activities</h1>
+                                                <h6>Proin bibendum lorem vitae congue malesuada. Fusce eu rutrum diam. Praesent interdum dapibus ipsum. Quisque lobortis, velit eget laoreet blandit.</h6>
+                                                <a href="#" class="btn-white margin-t32">Read More</a>
 
-<div class="col-md-4 home-feature">
-<h5>Fun Activities</h5>
-<div class="img-feature"><img class="img-responsive" src={{ url_for('static', filename='images/home/feature-1.png') }} alt=""/></div>
-<p>Duis nec mi porta, porttitor ipsum ac, consectetur felis. Integer adipiscing tristique volutpat. Duis mi nunc, placerat eu hendrerit ut, sagittis quis quam.</p>
+                                            </div>
 
-<a href="#" class="btn-color margin-t32">Read More</a>
-</div><!--end home-feature-->
+                                        </div><!--.col-md-6-->
 
-<div class="col-md-4 home-feature">
-<h5>Develop Skills</h5>
-<div class="img-feature"><img class="img-responsive" src={{ url_for('static', filename='images/home/feature-2.png') }} alt=""/></div>
-<p>Duis nec mi porta, porttitor ipsum ac, consectetur felis. Integer adipiscing tristique volutpat. Duis mi nunc, placerat eu hendrerit ut, sagittis quis quam.</p>
+                                        <div class="col-md-6">
+                                            <div class="flex-img">
+                                                <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-2.png') }} alt="" />
+                                            </div>
+                                        </div><!--.col-md-6-->
 
-<a href="#" class="btn-color margin-t32">Read More</a>
-</div><!--end home-feature-->
+                                    </div> <!--.row-->
+                                </li>
 
-<div class="col-md-4 home-feature">
-<h5>Future Success</h5>
-<div class="img-feature"><img class="img-responsive" src={{ url_for('static', filename='images/home/feature-3.png') }} alt=""/></div>
-<p>Duis nec mi porta, porttitor ipsum ac, consectetur felis. Integer adipiscing tristique volutpat. Duis mi nunc, placerat eu hendrerit ut, sagittis quis quam.</p>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-6">
 
-<a href="#" class="btn-color margin-t32">Read More</a>
-</div><!--end home-feature-->
 
-</div><!--end row-->
-</div><!--end container-->
+                                            <div class="flex-caption">
+                                                <h1>Easy learning with new technologies</h1>
+                                                <h6>Nulla justo enim, imperdiet et iaculis et, varius non odio. In hac habitasse platea dictumst. In hac habitasse platea dictumst.</h6>
+                                                <a href="#" class="btn-white margin-t32">Read More</a>
 
-</section><!--home-features-->
+                                            </div>
 
+                                        </div><!--.col-md-6-->
 
-<div class="zz-top"></div>
-<section id="home-play" class="wrap margin-t72">
+                                        <div class="col-md-6">
+                                            <div class="flex-img">
+                                                <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-3.png') }} alt="" />
+                                            </div>
+                                        </div><!--.col-md-6-->
 
-<div class="bkg-cover padding-72">
+                                    </div> <!--.row-->
+                                </li>
 
-<h2 class="home-title-section margin-b54">Come and play with us</h2>
 
-<div class="container">
+                            </ul>
+                        </div><!--end flexslider-->
 
-<div class="row">
+                    </div><!--.col-md-12-->
+                </div><!--.row-->
+            </div><!--.container-->
 
-<div class="col-md-6">
+        </section><!--slider-home-->
+        <div class="zz-bottom"></div>
 
-<h4 class="margin-b24">Integer pretium egestas turpis pretium adipiscing tristique</h4>
+        <section id="home-features" class="wrap margin-t72">
 
-<p>Suspendisse tempor sollicitudin consectetur. Duis tincidunt vulputate velit, a lobortis dolor porttitor vitae. Integer pellentesque eros vel nisi tincidunt posuere. Nullam mollis vel nulla a facilisis. Quisque blandit commodo orci,ut rhoncus lacus interdum ac. Pellentesque urna purus, fermentum quis turpis eu. Mauris vehicula eleifend metus.</p>
+            <div class="container">
+                <div class="row">
 
-<p>Dolor mi, ac viverra nulla faucibus a. Morbi mi urna, scelerisque nec ornare ut, aliquet ut mi. Aliquam erat volutpat. Proin dignissim tempus cursus. Donec tincidunt, velit ut egestas egestas, metus massa mattis mauris, eu lacinia risus risus quis ligula. Quisque gravida erat in risus malesuada, sed pulvinar risus pellentesque. Etiam porttitor enim at lacinia laoreet. Praesent quis nulla non orci semper porta. </p>
+                    <div class="col-md-4 home-feature">
+                        <h5>Fun Activities</h5>
+                        <div class="img-feature"><img class="img-responsive" src={{ url_for('static', filename='images/home/feature-1.png') }} alt=""/></div>
+                        <p>Duis nec mi porta, porttitor ipsum ac, consectetur felis. Integer adipiscing tristique volutpat. Duis mi nunc, placerat eu hendrerit ut, sagittis quis quam.</p>
 
-</div><!--end col-md-6-->
+                        <a href="#" class="btn-color margin-t32">Read More</a>
+                    </div><!--end home-feature-->
 
-<div class="col-md-6">
+                    <div class="col-md-4 home-feature">
+                        <h5>Develop Skills</h5>
+                        <div class="img-feature"><img class="img-responsive" src={{ url_for('static', filename='images/home/feature-2.png') }} alt=""/></div>
+                        <p>Duis nec mi porta, porttitor ipsum ac, consectetur felis. Integer adipiscing tristique volutpat. Duis mi nunc, placerat eu hendrerit ut, sagittis quis quam.</p>
 
-<div class="home-play-holder clearfix">
+                        <a href="#" class="btn-color margin-t32">Read More</a>
+                    </div><!--end home-feature-->
 
-<div class="home-play-img">
+                    <div class="col-md-4 home-feature">
+                        <h5>Future Success</h5>
+                        <div class="img-feature"><img class="img-responsive" src={{ url_for('static', filename='images/home/feature-3.png') }} alt=""/></div>
+                        <p>Duis nec mi porta, porttitor ipsum ac, consectetur felis. Integer adipiscing tristique volutpat. Duis mi nunc, placerat eu hendrerit ut, sagittis quis quam.</p>
 
-<img src={{ url_for('static', filename='images/home/play-1.jpg') }} alt="" />
+                        <a href="#" class="btn-color margin-t32">Read More</a>
+                    </div><!--end home-feature-->
 
-</div><!--end home-play-img-->
+                </div><!--end row-->
+            </div><!--end container-->
 
-<div class="home-play-text">
+        </section><!--home-features-->
 
-<h5 class="margin-b16">Drawing</h5>
 
-<p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
+        <div class="zz-top"></div>
+        <section id="home-play" class="wrap margin-t72">
 
-</div><!--end home-play-text-->
+            <div class="bkg-cover padding-72">
 
-</div><!--end home-play-holder-->
+                <h2 class="home-title-section margin-b54">Come and play with us</h2>
 
+                <div class="container">
 
-<div class="home-play-holder clearfix">
+                    <div class="row">
 
-<div class="home-play-img">
+                        <div class="col-md-6">
 
-<img src={{ url_for('static', filename='images/home/play-2.jpg') }} alt="" />
+                            <h4 class="margin-b24">Integer pretium egestas turpis pretium adipiscing tristique</h4>
 
-</div><!--end home-play-img-->
+                            <p>Suspendisse tempor sollicitudin consectetur. Duis tincidunt vulputate velit, a lobortis dolor porttitor vitae. Integer pellentesque eros vel nisi tincidunt posuere. Nullam mollis vel nulla a facilisis. Quisque blandit commodo orci,ut rhoncus lacus interdum ac. Pellentesque urna purus, fermentum quis turpis eu. Mauris vehicula eleifend metus.</p>
 
-<div class="home-play-text">
+                            <p>Dolor mi, ac viverra nulla faucibus a. Morbi mi urna, scelerisque nec ornare ut, aliquet ut mi. Aliquam erat volutpat. Proin dignissim tempus cursus. Donec tincidunt, velit ut egestas egestas, metus massa mattis mauris, eu lacinia risus risus quis ligula. Quisque gravida erat in risus malesuada, sed pulvinar risus pellentesque. Etiam porttitor enim at lacinia laoreet. Praesent quis nulla non orci semper porta. </p>
 
-<h5 class="margin-b16">Bubbles</h5>
+                        </div><!--end col-md-6-->
 
-<p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
+                        <div class="col-md-6">
 
-</div><!--end home-play-text-->
+                            <div class="home-play-holder clearfix">
 
-</div><!--end home-play-holder-->
+                                <div class="home-play-img">
 
-<div class="home-play-holder clearfix">
+                                    <img src={{ url_for('static', filename='images/home/play-1.jpg') }} alt="" />
 
-<div class="home-play-img">
+                                </div><!--end home-play-img-->
 
-<img src={{ url_for('static', filename='images/home/play-3.jpg') }} alt="" />
+                                <div class="home-play-text">
 
-</div><!--end home-play-img-->
+                                    <h5 class="margin-b16">Drawing</h5>
 
-<div class="home-play-text">
+                                    <p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
 
-<h5 class="margin-b16">Games</h5>
+                                </div><!--end home-play-text-->
 
-<p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
+                            </div><!--end home-play-holder-->
 
-</div><!--end home-play-text-->
 
-</div><!--end home-play-holder-->
+                            <div class="home-play-holder clearfix">
 
+                                <div class="home-play-img">
 
-</div><!--end col-md-6-->
+                                    <img src={{ url_for('static', filename='images/home/play-2.jpg') }} alt="" />
 
-</div><!--end row-->
+                                </div><!--end home-play-img-->
 
-</div><!--end container-->
+                                <div class="home-play-text">
 
-</div><!--bkg-cover-->
+                                    <h5 class="margin-b16">Bubbles</h5>
 
-</section><!--home-play-->
-<div class="zz-bottom"></div>
+                                    <p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
 
-<section id="home-latest-activity" class="wrap margin-t72">
+                                </div><!--end home-play-text-->
 
-<h2 class="home-title-section txt-color margin-b54">Latest Activity</h2>
+                            </div><!--end home-play-holder-->
 
-<div class="container">
+                            <div class="home-play-holder clearfix">
 
-<div class="row gallery-holder">
+                                <div class="home-play-img">
 
-<div class="col-md-4">
+                                    <img src={{ url_for('static', filename='images/home/play-3.jpg') }} alt="" />
 
-<figure class="img-overlay gal-img">
+                                </div><!--end home-play-img-->
 
-<a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-11.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
-<span class="btn-more btn-zoom"></span>
-<img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-11.jpg') }} alt=""></a></figure>
+                                <div class="home-play-text">
 
-</div><!--end col-md-4-->
+                                    <h5 class="margin-b16">Games</h5>
 
-<div class="col-md-4">
+                                    <p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
 
-<figure class="img-overlay gal-img">
+                                </div><!--end home-play-text-->
 
-<a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-12.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 2">
-<span class="btn-more btn-zoom"></span>
-<img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-12.jpg') }} alt=""></a></figure>
+                            </div><!--end home-play-holder-->
 
-</div><!--end col-md-4-->
 
-<div class="col-md-4">
+                        </div><!--end col-md-6-->
 
-<figure class="img-overlay gal-img">
+                    </div><!--end row-->
 
-<a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-13.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 3">
-<span class="btn-more btn-zoom"></span>
-<img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-13.jpg') }} alt=""></a></figure>
+                </div><!--end container-->
 
-</div><!--end col-md-4-->
+            </div><!--bkg-cover-->
 
-<div class="alignc"><a href="gallery-3col.html" class="btn-color margin-t54">View Gallery</a></div>
+        </section><!--home-play-->
+        <div class="zz-bottom"></div>
 
-</div><!--end row-->
+        <section id="home-latest-activity" class="wrap margin-t72">
 
-</div><!--end container-->
+            <h2 class="home-title-section txt-color margin-b54">Latest Activity</h2>
 
-</section><!--home-latest-activity-->
+            <div class="container">
 
-<div class="zz-top"></div>
-<section id="home-testimonials" class="wrap margin-t72">
+                <div class="row gallery-holder">
 
-<div class="bkg-cover padding-72">
+                    <div class="col-md-4">
 
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-       
-</div><!-- col-md-12-->
+                        <figure class="img-overlay gal-img">
 
-</div><!--end row-->
+                            <a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-11.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                                <span class="btn-more btn-zoom"></span>
+                                <img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-11.jpg') }} alt=""></a></figure>
 
-</div><!--end container-->
+                            </div><!--end col-md-4-->
 
-</div><!-- bkg-cover-->
+                            <div class="col-md-4">
 
-</section><!-- home-testimonials-->
+                                <figure class="img-overlay gal-img">
 
-<div class="zz-top-foo"></div>
-<footer class="wrap">
+                                    <a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-12.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 2">
+                                        <span class="btn-more btn-zoom"></span>
+                                        <img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-12.jpg') }} alt=""></a></figure>
 
-<div class="container">
-<div class="row">
+                                    </div><!--end col-md-4-->
 
-    <div class="col-md-4">
-    <div class="foo-block">
-    <h4 class="widgettitle">About</h4>
-    <p>In justo risus, fermentum eget egestas eget, element vitae tortor. Maecenas lorem mi, interdum id commodo ac, tincidunt vitae magna. In hac habitasse platea dictumst. Pellentesque quam.    </p>
-    </div><!--end foo-block-->
-    </div><!--end col-md-4-->
-    
-    <div class="col-md-4">
-    <div class="foo-block">
-    <h4 class="widgettitle">Schedule</h4>
-    <ul>
-    <li>Monday - Friday: 9.00 AM - 3.00 PM</li>
-    <li>Saturday- Sunday: Closed</li>
-    </ul>
-    </div><!--end foo-block-->
-    </div><!--end col-md-4-->
-    
-    <div class="col-md-4">
-    <div class="foo-block">
-    <h4 class="widgettitle">Contact Us</h4>
-    <ul>
-    <li>Address: 501 Boulevard, New York City, New York</li>
-    <li>Phone: 1-800-000-111</li>
-    <li>Fax: 1-800-000-111</li>
-    <li>Email: contact [at] kidsland [dot] com</li>
-    </ul>
-    </div><!-- foo-block-->
-    </div><!-- col-md-4-->
+                                    <div class="col-md-4">
 
-</div><!-- row-->
+                                        <figure class="img-overlay gal-img">
 
-</div><!-- container-->
+                                            <a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-13.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 3">
+                                                <span class="btn-more btn-zoom"></span>
+                                                <img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-13.jpg') }} alt=""></a></figure>
 
-<div class="copyright clearfix">
+                                            </div><!--end col-md-4-->
 
-<div class="container">
-<div class="row">
-<div class="col-md-12">
+                                            <div class="alignc"><a href="gallery-3col.html" class="btn-color margin-t54">View Gallery</a></div>
 
-<p>© 2014 Lawyers. All rights reserved. Theme by matchthemes.</p>
+                                        </div><!--end row-->
 
-<ul>
-<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-<li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-<li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-<li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-<li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
-</ul>
+                                    </div><!--end container-->
 
-</div><!-- col-md-12-->
-</div><!-- row-->
-</div><!-- container-->
+                                </section><!--home-latest-activity-->
 
-</div><!-- copyright-->
+                                <div class="zz-top"></div>
+                                <section id="home-testimonials" class="wrap margin-t72">
 
-</footer>
+                                    <div class="bkg-cover padding-72">
 
-</div><!-- main -->
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
 
-<div class="scrollup">
-<a class="scrolltop" href="#">
-<i class="fa fa-chevron-up"></i>
-</a>
-</div>
+                                                </div><!-- col-md-12-->
 
+                                            </div><!--end row-->
 
-<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type='text/javascript' src="{{ url_for('static', filename='css/bootstrap/js/bootstrap.min.js') }}"></script>
-<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script>
-<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.flexslider-min.js') }}"></script>
-<script type='text/javascript' src="{{ url_for('static', filename='js/prettyphoto/js/jquery.prettyPhoto.js') }}"></script>
-<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.form.min.js') }}"></script>
-<script type='text/javascript' src="{{ url_for('static', filename='js/init.js') }}></script>
+                                        </div><!--end container-->
 
-</body>
-</html>
+                                    </div><!-- bkg-cover-->
+
+                                </section><!-- home-testimonials-->
+
+                                <div class="zz-top-foo"></div>
+                                <footer class="wrap">
+
+                                    <div class="container">
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="foo-block">
+                                                    <h4 class="widgettitle">About</h4>
+                                                    <p>In justo risus, fermentum eget egestas eget, element vitae tortor. Maecenas lorem mi, interdum id commodo ac, tincidunt vitae magna. In hac habitasse platea dictumst. Pellentesque quam.    </p>
+                                                </div><!--end foo-block-->
+                                            </div><!--end col-md-4-->
+
+                                            <div class="col-md-4">
+                                                <div class="foo-block">
+                                                    <h4 class="widgettitle">Schedule</h4>
+                                                    <ul>
+                                                        <li>Monday - Friday: 9.00 AM - 3.00 PM</li>
+                                                        <li>Saturday- Sunday: Closed</li>
+                                                    </ul>
+                                                </div><!--end foo-block-->
+                                            </div><!--end col-md-4-->
+
+                                            <div class="col-md-4">
+                                                <div class="foo-block">
+                                                    <h4 class="widgettitle">Contact Us</h4>
+                                                    <ul>
+                                                        <li>Address: 501 Boulevard, New York City, New York</li>
+                                                        <li>Phone: 1-800-000-111</li>
+                                                        <li>Fax: 1-800-000-111</li>
+                                                        <li>Email: contact [at] kidsland [dot] com</li>
+                                                    </ul>
+                                                </div><!-- foo-block-->
+                                            </div><!-- col-md-4-->
+
+                                        </div><!-- row-->
+
+                                    </div><!-- container-->
+
+                                    <div class="copyright clearfix">
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                    <p>© 2014 Lawyers. All rights reserved. Theme by matchthemes.</p>
+
+                                                    <ul>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+                                                    </ul>
+
+                                                </div><!-- col-md-12-->
+                                            </div><!-- row-->
+                                        </div><!-- container-->
+
+                                    </div><!-- copyright-->
+
+                                </footer>
+
+                            </div><!-- main -->
+
+                            <div class="scrollup">
+                                <a class="scrolltop" href="#">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+
+
+                            <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                            <script type='text/javascript' src="{{ url_for('static', filename='css/bootstrap/js/bootstrap.min.js') }}"></script>
+                            <script type='text/javascript' src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script>
+                            <script type='text/javascript' src="{{ url_for('static', filename='js/jquery.flexslider-min.js') }}"></script>
+                            <script type='text/javascript' src="{{ url_for('static', filename='js/prettyphoto/js/jquery.prettyPhoto.js') }}"></script>
+                            <script type='text/javascript' src="{{ url_for('static', filename='js/jquery.form.min.js') }}"></script>
+                            <script type='text/javascript' src="{{ url_for('static', filename='js/init.js') }}></script>
+
+                        </body>
+                        </html>
