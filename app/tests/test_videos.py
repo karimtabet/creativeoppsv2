@@ -1,16 +1,16 @@
 from hamcrest import assert_that, is_, has_length
 
 from app.app import db
-from app.youtube import get_videos
+from app.videos import get_youtube_videos
 from app.models import Project
 from app.tests.utils import CreativeOpportunitiesTestCase
 
 
-class TestYoutube(CreativeOpportunitiesTestCase):
-    def test_get_video(self):
+class TestVideos(CreativeOpportunitiesTestCase):
+    def test_get_youtube_video(self):
         project = self.insert_n_projects(1)[0]
 
-        get_videos(
+        get_youtube_videos(
             'https://www.youtube.com/watch?v=Lbjru5CQIW4',
             project.id
         )
@@ -31,10 +31,10 @@ class TestYoutube(CreativeOpportunitiesTestCase):
             is_('http://img.youtube.com/vi/Lbjru5CQIW4/default.jpg')
         )
 
-    def test_get_3_videos(self):
+    def test_get_3_youtube_videos(self):
         project = self.insert_n_projects(1)[0]
 
-        get_videos(
+        get_youtube_videos(
             'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
             'https://www.youtube.com/watch?v=VEMWyBWw0cA,'
             'https://www.youtube.com/watch?v=7Ny-D2MCAfg',
@@ -50,7 +50,7 @@ class TestYoutube(CreativeOpportunitiesTestCase):
     def test_get_duplicate_video(self):
         project = self.insert_n_projects(1)[0]
 
-        get_videos(
+        get_youtube_videos(
             'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
             'https://www.youtube.com/watch?v=Lbjru5CQIW4,'
             'https://www.youtube.com/watch?v=Lbjru5CQIW4',

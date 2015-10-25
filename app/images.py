@@ -6,7 +6,7 @@ from app.models import Image
 from app.config import config
 
 
-def get_pictures(album_id, project_id):
+def get_flickr_images(album_id, project_id):
     flickr_api_key = config["flickr_api_key"]
     thumbnail_url = ''
     image_url = ''

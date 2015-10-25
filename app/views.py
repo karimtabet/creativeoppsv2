@@ -9,8 +9,8 @@ from wtforms.validators import Required
 
 from app.app import app, db, admin
 from app.models import Project, Image, Video
-from app.flickr import get_pictures
-from app.youtube import get_videos
+from app.images import get_flickr_images
+from app.videos import get_youtube_videos
 
 
 @app.route('/')
@@ -84,7 +84,7 @@ class GetFlickrView(BaseView):
     def index(self):
         form = GetFlickrForm(request.form)
         if form.validate_on_submit():
-            get_pictures(form.data["album_id"], form.data["project_id"])
+            get_flickr_images(form.data["album_id"], form.data["project_id"])
             flash('Succesffully added images to {project_id}'.format(
               project_id=form.data["project_id"])
             )
@@ -108,7 +108,9 @@ class GetYoutubeView(BaseView):
     def index(self):
         form = GetYoutubeForm(request.form)
         if form.validate_on_submit():
-            get_videos(form.data["video_urls"], form.data["project_id"])
+            get_youtube_videos(
+              form.data["video_urls"], form.data["project_id"]
+            )
             flash('Succesffully added images to {project_id}'.format(
               project_id=form.data["project_id"])
             )
