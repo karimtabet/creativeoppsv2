@@ -19,7 +19,7 @@
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900%7CPacifico' rel='stylesheet' type='text/css'>
 
 <!-- Favicons -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="{{ url_for('static', filename='css/images/favicon.ico' ) }}">
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/css/bootstrap.min.css') }}" media="all" />
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
@@ -315,7 +315,7 @@
 
 <figure class="img-overlay gal-img">
 
-<a href="images/gallery/gallery-1/img-11.jpg') }} class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+<a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-11.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
 <span class="btn-more btn-zoom"></span>
 <img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-11.jpg') }} alt=""></a></figure>
 
@@ -325,7 +325,7 @@
 
 <figure class="img-overlay gal-img">
 
-<a href="images/gallery/gallery-1/img-12.jpg') }} class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 2">
+<a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-12.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 2">
 <span class="btn-more btn-zoom"></span>
 <img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-12.jpg') }} alt=""></a></figure>
 
@@ -335,7 +335,7 @@
 
 <figure class="img-overlay gal-img">
 
-<a href="images/gallery/gallery-1/img-13.jpg') }} class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 3">
+<a href="{{ url_for('static', filename='css/images/gallery/gallery-1/img-13.jpg') }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 3">
 <span class="btn-more btn-zoom"></span>
 <img class="img-responsive" src={{ url_for('static', filename='images/gallery/gallery-1/img-13.jpg') }} alt=""></a></figure>
 
@@ -442,13 +442,13 @@
 </div>
 
 
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
-<script type='text/javascript' src='css/bootstrap/js/bootstrap.min.js'></script>
-<script type='text/javascript' src='js/jquery.easing.min.js'></script>
-<script type='text/javascript' src='js/jquery.flexslider-min.js'></script>
-<script type='text/javascript' src='js/prettyphoto/js/jquery.prettyPhoto.js'></script>
-<script type='text/javascript' src='js/jquery.form.min.js'></script>
-<script type='text/javascript' src='js/init.js'></script>
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='css/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.flexslider-min.js') }}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/prettyphoto/js/jquery.prettyPhoto.js') }}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.form.min.js') }}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/init.js') }}></script>
 
 </body>
 </html>
