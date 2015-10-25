@@ -8,27 +8,20 @@ from wtforms.widgets import TextArea
 from wtforms.validators import Required
 
 from app.app import app, db, admin
-from app.models import Project, Image, Video
+from app.models import Project
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
 
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+
+@app.route('/events', methods=['GET'])
+def events():
     projects = db.session.query(Project).all()
-    return render_template('index.html',
-                           projects=projects)
-
-
-@app.route('/project/<project_id>', methods=['GET'])
-def project(project_id):
-    project = db.session.query(Project).filter(id=project_id).first()
-    images = db.session.query(Image).filter(project_id=project_id).all()
-    videos = db.session.query(Video).filter(project_id=project_id).all()
-    return render_template('project.html',
-                           project=project,
-                           images=images,
-                           videos=videos)
+    return render_template('events.html', projects=projects)
 
 
 class CKTextAreaWidget(TextArea):
