@@ -13,17 +13,14 @@ class CreativeOpportunitiesTestCase(TestCase):
     def setUp(self):
         db.session.close()
         for table in reversed(Base.metadata.sorted_tables):
-            db.session.execute(
-                'delete from {table_name};'
-                .format(table_name=table.name)
-            )
+            db.session.execute(table.delete())
 
     def insert_n_projects(self, n):
         projects = []
         for index in range(n):
             project = Project(
-                id='test-project',
-                title='Test Project',
+                id='test-project-{n}'.format(n=index),
+                title='Test Project {n}'.format(n=index),
                 description='This is a test project.',
                 location='Some place nice',
                 body='Test project stuff',
