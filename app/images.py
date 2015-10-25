@@ -6,6 +6,12 @@ from app.models import Image
 from app.config import config
 
 
+def get_images_by_project(project_id):
+    return db.session.query(Image).filter(
+        Image.project_id == project_id
+    ).all()
+
+
 def get_flickr_images(album_id, project_id):
     flickr_api_key = config["flickr_api_key"]
     thumbnail_url = ''
