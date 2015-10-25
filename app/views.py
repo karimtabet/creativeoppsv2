@@ -24,6 +24,12 @@ def events():
     return render_template('events.html', projects=projects)
 
 
+@app.route('/event/<project_id>', methods=['GET'])
+def event(project_id):
+    project = db.session.query(Project).get(project_id)
+    return render_template('event.html', project=project)
+
+
 class CKTextAreaWidget(TextArea):
     def __call__(self, field, **kwargs):
         if kwargs.get('class'):
