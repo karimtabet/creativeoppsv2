@@ -1,0 +1,12 @@
+{% extends 'admin/model/edit.html' %}
+{% block body %}
+<h6 style="padding-left:5px">Images</h6>
+{% for image in model.images %}
+    <a href={{ image.image_url }} target=_blank ><img style="padding:5px" src={{ image.thumbnail_url }} width="60px"/></a>
+{% endfor %}
+{% for video in model.videos %}
+<h6 style="padding-left:5px">Videos</h6>
+    <a href={{ video.video_url }}><img style="padding:5px" src={{ video.thumbnail_url }} width="60px"/></a>
+{% endfor %}
+  {{ super() }}
+{% endblock %}
