@@ -51,15 +51,14 @@ class CKTextAreaField(TextAreaField):
 
 class ProjectModelView(ModelView):
     list_template = 'admin/list_projects.html'
+    edit_template = 'admin/edit_project.html'
     form_columns = [
       'title',
       'location',
       'datetime',
       'avatar_url',
       'description',
-      'body',
-      'images',
-      'videos'
+      'body'
     ]
     column_list = ('avatar_url', 'title', 'location', 'datetime')
     column_formatters = {'avatar_url': macro("preview_avatar")}
