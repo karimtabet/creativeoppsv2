@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+<body>
+{% block body %}
+    {{ super() }}
+
+    <section class="page-top wrap">
+
+    <h2 class="page-section-title">Projects</h2>
+
+    </section><!-- page-top -->
+    <div class="zz-bottom"></div>
+
+    <section class="page-content wrap">
+
+      <div class="container">
+
+        <div class="row events-holder">
+
+          {% for project in projects[:3] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project.id }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project.id }}">{{ project.title }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project.datetime.strftime('%a, %d %b %Y') }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project.location }}</li>
+            </ul>
+
+            <p>{{ project.description }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[3:6] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project.id }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project.id }}">{{ project.title }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project.datetime.strftime('%a, %d %b %Y') }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project.location }}</li>
+            </ul>
+
+            <p>{{ project.description }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[6:9] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project.id }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project.id }}">{{ project.title }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project.datetime.strftime('%a, %d %b %Y') }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project.location }}</li>
+            </ul>
+
+            <p>{{ project.description }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[9:12] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project.id }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project.id }}">{{ project.title }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project.datetime.strftime('%a, %d %b %Y') }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project.location }}</li>
+            </ul>
+
+            <p>{{ project.description }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[12:15] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project.id }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project.id }}">{{ project.title }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project.datetime.strftime('%a, %d %b %Y') }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project.location }}</li>
+            </ul>
+
+            <p>{{ project.description }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+
+
+      </div><!-- container-->
+
+    </section><!-- page-content-->
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
+
+
+    </body>
+</html>
