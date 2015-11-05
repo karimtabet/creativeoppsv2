@@ -18,16 +18,16 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/events', methods=['GET'])
-def events():
+@app.route('/projects', methods=['GET'])
+def projects():
     projects = db.session.query(Project).all()
-    return render_template('events.html', projects=projects)
+    return render_template('projects.html', projects=projects)
 
 
-@app.route('/event/<project_id>', methods=['GET'])
-def event(project_id):
+@app.route('/project/<project_id>', methods=['GET'])
+def project(project_id):
     project = db.session.query(Project).get(project_id)
-    return render_template('event.html', project=project)
+    return render_template('project.html', project=project)
 
 
 @app.route('/galleries', methods=['GET'])
