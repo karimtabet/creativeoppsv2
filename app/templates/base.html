@@ -40,11 +40,11 @@
                             </div>
                             <div class="collapse navbar-collapse" id="collapse-navigation">
                                 <ul class="nav menu-nav">
-                                    <li><a href="/">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li class="current_page_item"><a href="/galleries">Galleries</a></li>
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li id="home_btn"><a href="/">Home</a></li>
+                                    <li id="about_btn"><a href="about.html">About</a></li>
+                                    <li id="galleries_btn"><a href="/galleries">Galleries</a></li>
+                                    <li id="projects_btn"><a href="/projects">Projects</a></li>
+                                    <li id="contact_btn"><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
 
@@ -135,4 +135,23 @@
     <script type='text/javascript' src="{{ url_for('static', filename='js/prettyphoto/js/jquery.prettyPhoto.js') }}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='js/jquery.form.min.js') }}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='js/init.js') }}"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+    if(window.location.pathname == '/') {
+        $('#home_btn').addClass('current_page_item');
+    }
+    else if(window.location.pathname == '/about') {
+        $('#about_btn').addClass('current_page_item');
+    }
+    else if(window.location.pathname == '/galleries') {
+        $('#galleries_btn').addClass('current_page_item');
+    }
+    else if(window.location.pathname.substring(0, 8) == '/project' ) {
+        $('#projects_btn').addClass('current_page_item');
+    }
+    else if(window.location.pathname == '/contact') {
+        $('#contact_btn').addClass('current_page_item');
+    }
+});
+</script>
 {% endblock %}
