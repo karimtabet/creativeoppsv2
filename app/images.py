@@ -1,9 +1,8 @@
 import requests
 from sqlalchemy.exc import IntegrityError
 
-from app.app import db
+from app.app import app, db
 from app.models import Image
-from app.config import config
 
 
 def get_images_by_project(project_id):
@@ -13,7 +12,7 @@ def get_images_by_project(project_id):
 
 
 def get_flickr_images(album_id, project_id):
-    flickr_api_key = config["flickr_api_key"]
+    flickr_api_key = app.config["FLICKR_API_KEY"]
     thumbnail_url = ''
     image_url = ''
     last_picture = ''
