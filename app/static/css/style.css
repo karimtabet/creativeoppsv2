@@ -660,7 +660,11 @@ position:relative;}
 
 .albums-holder .gallery, .events-holder .event{margin-top:54px;}
 .albums-holder:first-child .gallery, .events-holder:first-child .event{margin-top:0;}
-
+.gallery-type {
+    font-family: 'Pacifico', Arial, sans-serif;
+    color: #1d2122;
+    margin: 0;
+}
 .gallery h5, .gallery p{text-align:center;}
 .gallery h5{margin-top:24px;
 margin-bottom:0;}
