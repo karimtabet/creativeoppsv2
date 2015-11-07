@@ -18,6 +18,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/about', methods=['GET'])
+def about_us():
+    return render_template('about.html')
+
+
 @app.route('/projects', methods=['GET'])
 def projects():
     projects = db.session.query(Project).all()
