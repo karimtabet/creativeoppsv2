@@ -27,6 +27,63 @@
 
         <div class="container">
 
+        <h4 class="gallery-type">Videos</h4>
+
+        <div class="row albums-holder">
+
+        {% for video in project.videos[:4] %}
+        <div class="col-md-3 gallery">
+
+        <figure class="img-overlay gal-img">
+
+        <a href="{{ video.video_url }}" class="lightbox" data-rel="prettyPhoto[gallery]">
+        <span class="btn-more btn-zoom"></span>
+        <img class="img-responsive" src="{{ video.thumbnail_url }}" alt=""></a>
+        </figure>
+
+        </div><!--end col-md-3-->
+        {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row albums-holder">
+
+        {% for video in project.videos[4:8] %}
+        <div class="col-md-3 gallery">
+
+        <figure class="img-overlay gal-img">
+
+        <a href="{{ video.video_url }}" target="_blank">
+        <span class="btn-more btn-zoom"></span>
+        <img class="img-responsive" src="{{ video.thumbnail_url }}" alt=""></a>
+        </figure>
+
+        </div><!--end col-md-3-->
+        {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row albums-holder">
+
+        {% for video in project.videos[8:12] %}
+        <div class="col-md-3 gallery">
+
+        <figure class="img-overlay gal-img">
+
+        <a href="{{ video.video_url }}" target="_blank">
+        <span class="btn-more btn-zoom"></span>
+        <img class="img-responsive" src="{{ video.thumbnail_url }}" alt=""></a>
+        </figure>
+
+        </div><!--end col-md-3-->
+        {% endfor %}
+
+        </div><!--row-->
+
+        <br><br>
+
+        <h4 class="gallery-type">Images</h4>
+
         <div class="row albums-holder">
 
         {% for image in project.images[:4] %}
