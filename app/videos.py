@@ -12,7 +12,7 @@ def get_youtube_videos(video_urls, project_id):
         query = parse.parse_qs(url_data.query)
         video_id = query["v"][0]
         thumbnail_url = (
-            'http://img.youtube.com/vi/{video_id}/default.jpg'
+            'http://img.youtube.com/vi/{video_id}/mqdefault.jpg'
             .format(video_id=video_id)
         )
         video = Video(video_url=video_url,
