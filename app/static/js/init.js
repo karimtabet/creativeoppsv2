@@ -32,7 +32,7 @@
 	
 	$(".gal-img a[data-rel^='prettyPhoto']").prettyPhoto({
 						animation_speed: 'normal',
-						autoplay_slideshow: true,
+						autoplay_slideshow: false,
 						slideshow: 3000
 					});
 
