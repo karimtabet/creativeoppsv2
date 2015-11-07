@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+<body>
+{% block body %}
+    {{ super() }}
+  
+    <section class="page-top wrap">
+
+      <h2 class="page-section-title">About Us</h2>
+
+    </section><!-- page-top -->
+    <div class="zz-bottom"></div>
+
+    <section class="page-content wrap">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-6 col-md-6">
+
+            <h5 class="widgettitle">What we do</h5>
+
+            <p>Creative Opportunities is a social enterprise that supports and encourages greater creativity amongst young people in London. Our work takes many forms, from delivering arts workshops for underfunded London schools, to creating bespoke media for charitable organisations.</p>
+
+            <p>Our projects are user led and seek to provide young people with a chance to experience a range of creative practices in professional settings. We have a particular focus on encouraging creative processes, freethinking, and technical knowledge, with the aim of strengthening and celebrating our diverse London communities.</p>
+
+          </div><!-- col-md-6-->
+
+          <div class="col-sm-6 col-md-6">
+
+            <img class="img-responsive" src="{{ url_for('static', filename='images/painted_hands.png') }}" alt="">
+
+          </div><!-- col-md-6-->
+
+        </div><!--row-->
+
+        <div class="row">
+
+          <div class="col-sm-6 col-md-3 margin-t54">
+
+            <h5 class="service-title"><i class="fa fa-child"></i>Creative Opportunities</h5>
+
+            <p>Our team is comprised of young people who are working professionals in a variety of creative industries, including film and television, music, art, and creative writing. We aim to provide genuinely informative experiences for young people, enhancing understanding of creative practice, its role in professional industries, and the technical requirements involved in a variety of artistic fields.</p>
+
+          </div><!-- col-md-3-->
+
+          <div class="col-sm-6 col-md-3 margin-t54">
+
+            <h5 class="service-title"><i class="fa fa-group"></i>Workshops</h5>
+
+            <p>We design and deliver creative workshops on a custom made basis for all levels. Our workshops represent a holistic approach to creative education, and we aim to give genuine experiences of artistic practice. We strongly encourage participant ownership of our workshop output, enabling a greater understanding of artistic value and creative practice. Please see our Projects page for more information.</p>
+
+          </div><!-- col-md-3-->
+
+          <div class="col-sm-6 col-md-3 margin-t54">
+
+            <h5 class="service-title"><i class="fa fa-magic"></i>Media</h5>
+
+            <p>Our specialisms in creative and entertainment industries make us the perfect organisation to aid in the creation of media and educational content. Be it developing a creative project from scratch, to consulting on existent or newly forming collaborative works, we can help give your resources a professional polish. For further details see our Projects page.</p>
+
+          </div><!-- col-md-3-->
+
+          <div class="col-sm-6 col-md-3 margin-t54">
+
+            <h5 class="service-title"><i class="fa fa-tree"></i>Specialists</h5>
+
+            <p>The Creative Opportunities team is made up of specialists in charitable, educational, and creative industries. Our organisation is motivated by a deep desire to encourage creativity and support the London communities most deprived of access to the arts. Our team comes from backgrounds that have instilled a deep and personal conviction in our causes. You can find more information about our team below.</p>
+
+          </div><!-- col-md-3-->
+
+        </div><!--row-->
+
+        <div class="row albums-holder">
+
+            <div class="col-md-3 gallery">
+
+                <figure class="img-overlay gal-img img-team">
+
+                  <a href="single-teacher.html">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="images/team/team-1.jpg" alt=""></a>
+                </figure>
+
+                <h5><a href="single-teacher.html">Mary Doe</a></h5>
+                <p>Principal</p>
+
+                <div>Curabitur auctor erat sed nisl interdum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim felis, semper hendrerit hendrerit porta.</div>
+
+                <ul class="team-social alignc margin-t24">
+                  <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+
+                </ul>
+
+            </div><!--end col-md-3-->
+
+                <div class="col-md-3 gallery">
+
+                  <figure class="img-overlay gal-img img-team">
+                    <a href="single-teacher.html">
+                      <span class="btn-more btn-link"></span>
+                      <img class="img-responsive" src="images/team/team-2.jpg" alt=""></a></figure>
+
+                      <h5><a href="single-teacher.html">John Doe</a></h5>
+                      <p>Teacher</p>
+
+                      <div>Curabitur auctor erat sed nisl interdum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim felis, semper hendrerit hendrerit porta.</div>
+
+                      <ul class="team-social alignc margin-t24">
+                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+
+                      </ul>
+
+                </div><!--end col-md-3-->
+
+                  <div class="col-md-3 gallery">
+
+                    <figure class="img-overlay gal-img img-team">
+
+                      <a href="single-teacher.html">
+                        <span class="btn-more btn-link"></span>
+                        <img class="img-responsive" src="images/team/team-3.jpg" alt=""></a></figure>
+
+                        <h5><a href="single-teacher.html">April Doe</a></h5>
+                        <p>Teacher</p>
+
+                        <div>Curabitur auctor erat sed nisl interdum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim felis, semper hendrerit hendrerit porta.</div>
+
+                        <ul class="team-social alignc margin-t24">
+                          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+
+                        </ul>
+
+                    </div><!-- col-md-3-->
+
+                    <div class="col-md-3 gallery">
+
+                        <figure class="img-overlay gal-img img-team">
+
+                            <a href="single-teacher.html">
+                              <span class="btn-more btn-link"></span>
+                              <img class="img-responsive" src="images/team/team-4.jpg" alt=""></a>
+                        </figure>
+
+                        <h5><a href="single-teacher.html">Mike Doe</a></h5>
+                        <p>Teacher</p>
+
+                        <div>Curabitur auctor erat sed nisl interdum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim felis, semper hendrerit hendrerit porta.</div>
+
+                        <ul class="team-social alignc margin-t24">
+                          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+
+                        </ul>
+
+                    </div><!-- col-md-3-->
+
+                </div><!--row-->
+
+            </div><!-- container-->
+
+        </section><!-- page-content-->
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
+
+
+    </body>
+</html>
