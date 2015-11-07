@@ -41,6 +41,12 @@ def galleries():
     return render_template('galleries.html', projects=projects)
 
 
+@app.route('/gallery/<project_id>', methods=['GET'])
+def gallery(project_id):
+    project = db.session.query(Project).get(project_id)
+    return render_template('gallery.html', project=project)
+
+
 class CKTextAreaWidget(TextArea):
     def __call__(self, field, **kwargs):
         if kwargs.get('class'):
