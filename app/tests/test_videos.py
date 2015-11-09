@@ -28,7 +28,7 @@ class TestVideos(CreativeOpportunitiesTestCase):
 
         assert_that(
             project.videos[0].thumbnail_url,
-            is_('http://img.youtube.com/vi/Lbjru5CQIW4/default.jpg')
+            is_('http://img.youtube.com/vi/Lbjru5CQIW4/maxresdefault.jpg')
         )
 
     def test_get_3_youtube_videos(self):
