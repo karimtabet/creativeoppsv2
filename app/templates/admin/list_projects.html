@@ -3,10 +3,19 @@
 {% macro preview_avatar(model, column) %}
 {% if model.image != None %}
 <img
-   class="img-thumbnail"
-   width="100"
-   src="{{ model.avatar_url }}"
-   >
+    {% if model.avatar_url %}
+    class="img-thumbnail"
+    width="100"
+    src="{{ model.avatar_url }}"
+    >
+    {% endif %}
+    {% if model.image_url %}
+    class="img-thumbnail"
+    width="100"
+    src="{{ model.image_url }}"
+    >
+    {% endif %}
+
 {% else %}
 No cover image for this curated list
 {% endif %}
