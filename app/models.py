@@ -74,3 +74,4 @@ class IndexCarouselItem(Base):
     title = Column(String(45), nullable=False)
     description = Column(String(220), nullable=False)
     image_url = Column(String, nullable=False)
+    read_more_url = Column(String, nullable=False)
