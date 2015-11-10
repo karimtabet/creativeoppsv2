@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from flask import render_template, request, flash
+from flask import render_template, request, redirect, flash, url_for
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.admin.model.template import macro
@@ -10,7 +10,7 @@ from wtforms.widgets import TextArea
 from wtforms.validators import Required
 
 from app.app import app, db, admin
-from app.models import IndexCarouselItem, Project, Image
+from app.models import IndexCarouselItem, IndexContent, Project, Image
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
 
@@ -80,6 +80,33 @@ admin.add_view(
         endpoint='index-carousel-items',
         category='Index Page',
         name='Carousel Items'
+    )
+)
+
+
+class IndexContentModelView(ModelView):
+    can_create = False
+    can_delete = False
+    form_overrides = {
+      'feature_1_description': CKTextAreaField,
+      'feature_2_description': CKTextAreaField,
+      'feature_3_description': CKTextAreaField,
+      'mid_page_text': CKTextAreaField,
+      'mid_page_feature_1_description': CKTextAreaField,
+      'mid_page_feature_2_description': CKTextAreaField,
+      'mid_page_feature_3_description': CKTextAreaField
+    }
+
+    def on_model_change(self, form, model, is_created):
+        model.uuid = uuid4()
+
+admin.add_view(
+    IndexContentModelView(
+        IndexContent,
+        db.session,
+        endpoint='index-descriptive-content',
+        category='Index Page',
+        name='Descriptive Content'
     )
 )
 
