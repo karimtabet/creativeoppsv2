@@ -23,75 +23,25 @@
 
                         <div class="flexslider flexslider-home">
                             <ul class="slides">
+                                {% for item in carousel_items %}
                                 <li>
                                     <div class="row">
                                         <div class="col-md-6">
-
-
                                             <div class="flex-caption">
-                                                <h1>We care about the children education</h1>
-                                                <h6>Vivamus non dui ut diam commodo molestie. Proin at commodo ipsum. Praesent pulvinar etus vel sem euismod sagittis. Vestibulum ante ipsum primis in faucibus.</h6>
-                                                <a href="#" class="btn-white margin-t32">Read More</a>
+                                                <h1>{{ item.title }}</h1>
+                                                <h6>{{ item.description }}</h6>
+                                                <a href="{{ item.read_more_url }}" class="btn-white margin-t32">Read More</a>
                                             </div>
-
                                         </div><!--.col-md-6-->
-
                                         <div class="col-md-6">
                                             <div class="flex-img">
-                                                <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-1.png') }} alt="" />
+                                                <img class="img-responsive" src={{ item.image_url }} />
                                             </div>
                                         </div><!--.col-md-6-->
 
                                     </div> <!--.row-->
                                 </li>
-
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-6">
-
-
-                                            <div class="flex-caption">
-                                                <h1>Great things to do: games, stories, activities</h1>
-                                                <h6>Proin bibendum lorem vitae congue malesuada. Fusce eu rutrum diam. Praesent interdum dapibus ipsum. Quisque lobortis, velit eget laoreet blandit.</h6>
-                                                <a href="#" class="btn-white margin-t32">Read More</a>
-
-                                            </div>
-
-                                        </div><!--.col-md-6-->
-
-                                        <div class="col-md-6">
-                                            <div class="flex-img">
-                                                <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-2.png') }} alt="" />
-                                            </div>
-                                        </div><!--.col-md-6-->
-
-                                    </div> <!--.row-->
-                                </li>
-
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-6">
-
-
-                                            <div class="flex-caption">
-                                                <h1>Easy learning with new technologies</h1>
-                                                <h6>Nulla justo enim, imperdiet et iaculis et, varius non odio. In hac habitasse platea dictumst. In hac habitasse platea dictumst.</h6>
-                                                <a href="#" class="btn-white margin-t32">Read More</a>
-
-                                            </div>
-
-                                        </div><!--.col-md-6-->
-
-                                        <div class="col-md-6">
-                                            <div class="flex-img">
-                                                <img class="img-responsive" src={{ url_for('static', filename='images/slider/slide-3.png') }} alt="" />
-                                            </div>
-                                        </div><!--.col-md-6-->
-
-                                    </div> <!--.row-->
-                                </li>
-
-
+                                {% endfor %}
                             </ul>
                         </div><!--end flexslider-->
 
