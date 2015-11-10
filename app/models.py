@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import MetaData, Column, String, DateTime, ForeignKey
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -64,3 +65,12 @@ class Video(Base):
 
     def __repr__(self):
         return '<Video {url}>'.format(url=self.video_url)
+
+
+class IndexCarouselItem(Base):
+    __tablename__ = 'index_carousel_items'
+
+    uuid = Column(UUID(as_uuid=True), primary_key=True)
+    title = Column(String(45), nullable=False)
+    description = Column(String(220), nullable=False)
+    image_url = Column(String, nullable=False)
