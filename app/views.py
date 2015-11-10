@@ -17,7 +17,8 @@ from app.videos import get_youtube_videos
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    carousel_items = db.session.query(IndexCarouselItem).all()
+    return render_template('index.html', carousel_items=carousel_items)
 
 
 @app.route('/about', methods=['GET'])
