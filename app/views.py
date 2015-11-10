@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from flask import render_template, request, flash
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
@@ -8,7 +10,7 @@ from wtforms.widgets import TextArea
 from wtforms.validators import Required
 
 from app.app import app, db, admin
-from app.models import Project, Image
+from app.models import IndexCarouselItem, Project, Image
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
 
@@ -60,6 +62,27 @@ class CKTextAreaField(TextAreaField):
     widget = CKTextAreaWidget()
 
 
+class IndexCarouselItemModelView(ModelView):
+    list_template = 'admin/list_projects.html'
+    column_list = ('image_url', 'title', 'description', 'read_more_url')
+    column_formatters = {'image_url': macro("preview_avatar")}
+    column_labels = {'image_url': 'Image'}
+    form_overrides = {'description': CKTextAreaField}
+
+    def on_model_change(self, form, model, is_created):
+        model.uuid = uuid4()
+
+admin.add_view(
+    IndexCarouselItemModelView(
+        IndexCarouselItem,
+        db.session,
+        endpoint='index-carousel-items',
+        category='Index Page',
+        name='Carousel Items'
+    )
+)
+
+
 class ProjectModelView(ModelView):
     list_template = 'admin/list_projects.html'
     edit_template = 'admin/edit_project.html'
@@ -80,7 +103,7 @@ class ProjectModelView(ModelView):
         model.id = form.title.data.lower().replace(' ', '-')
 
 admin.add_view(
-  ProjectModelView(Project, db.session, endpoint='projects')
+  ProjectModelView(Project, db.session, endpoint='projects', name='Projects')
 )
 
 
