@@ -75,3 +75,40 @@ class IndexCarouselItem(Base):
     description = Column(String(220), nullable=False)
     image_url = Column(String, nullable=False)
     read_more_url = Column(String, nullable=False)
+
+
+class IndexContent(Base):
+    __tablename__ = "index_content"
+
+    uuid = Column(UUID(as_uuid=True), primary_key=True)
+
+    feature_1_title = Column(String(15), nullable=False)
+    feature_1_image_url = Column(String, nullable=False)
+    feature_1_description = Column(String(160), nullable=False)
+    feature_1_read_more_url = Column(String, nullable=False)
+
+    feature_2_title = Column(String(15), nullable=False)
+    feature_2_image_url = Column(String, nullable=False)
+    feature_2_description = Column(String(160), nullable=False)
+    feature_2_read_more_url = Column(String, nullable=False)
+
+    feature_3_title = Column(String(15), nullable=False)
+    feature_3_image_url = Column(String, nullable=False)
+    feature_3_description = Column(String(160), nullable=False)
+    feature_3_read_more_url = Column(String, nullable=False)
+
+    mid_page_heading = Column(String(40), nullable=False)
+    mid_page_subheading = Column(String(80), nullable=False)
+    mid_page_text = Column(String(600), nullable=False)
+
+    mid_page_feature_1_title = Column(String(15), nullable=False)
+    mid_page_feature_1_image_url = Column(String, nullable=False)
+    mid_page_feature_1_description = Column(String(160), nullable=False)
+
+    mid_page_feature_2_title = Column(String(15), nullable=False)
+    mid_page_feature_2_image_url = Column(String, nullable=False)
+    mid_page_feature_2_description = Column(String(160), nullable=False)
+
+    mid_page_feature_3_title = Column(String(15), nullable=False)
+    mid_page_feature_3_image_url = Column(String, nullable=False)
+    mid_page_feature_3_description = Column(String(160), nullable=False)
