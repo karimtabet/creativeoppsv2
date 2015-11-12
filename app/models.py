@@ -100,6 +100,7 @@ class IndexContent(Base):
     mid_page_heading = Column(String(40), nullable=False)
     mid_page_subheading = Column(String(80), nullable=False)
     mid_page_text = Column(String(600), nullable=False)
+    mid_page_text_2 = Column(String(600), nullable=False)
 
     mid_page_feature_1_title = Column(String(15), nullable=False)
     mid_page_feature_1_image_url = Column(String, nullable=False)
