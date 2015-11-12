@@ -1,18 +1,16 @@
 from uuid import uuid4
 
-from flask import render_template, request, redirect, flash, url_for
+from flask import render_template, request, flash
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.admin.model.template import macro
-from flask.ext.wtf import Form
-from wtforms import TextField, TextAreaField, SelectField
-from wtforms.widgets import TextArea
-from wtforms.validators import Required
+
 
 from app.app import app, db, admin
 from app.models import IndexCarouselItem, IndexContent, Project, Image
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
+from app.forms import CKTextAreaField, GetFlickrForm, GetYoutubeForm
 
 
 @app.route('/')
@@ -48,19 +46,6 @@ def galleries():
 def gallery(project_id):
     project = db.session.query(Project).get(project_id)
     return render_template('gallery.html', project=project)
-
-
-class CKTextAreaWidget(TextArea):
-    def __call__(self, field, **kwargs):
-        if kwargs.get('class'):
-            kwargs['class'] += ' ckeditor'
-        else:
-            kwargs.setdefault('class', 'ckeditor')
-        return super(CKTextAreaWidget, self).__call__(field, **kwargs)
-
-
-class CKTextAreaField(TextAreaField):
-    widget = CKTextAreaWidget()
 
 
 class IndexCarouselItemModelView(ModelView):
@@ -135,16 +120,6 @@ admin.add_view(
 )
 
 
-class GetFlickrForm(Form):
-    projects = db.session.query(Project).all()
-    album_id = TextField('Album ID', [Required()])
-    project_id = SelectField(
-      'Project',
-      choices=[(project.id, project.title) for project in projects],
-      validators=[Required()]
-    )
-
-
 class GetFlickrView(BaseView):
     @expose('/', methods=('GET', 'POST'))
     def index(self):
@@ -157,16 +132,6 @@ class GetFlickrView(BaseView):
         return self.render('admin/get_flickr.html', form=form)
 
 admin.add_view(GetFlickrView(name='Get Flickr Content', url='get_flickr'))
-
-
-class GetYoutubeForm(Form):
-    projects = db.session.query(Project).all()
-    video_urls = CKTextAreaField('Video URLs (comma separated)', [Required()])
-    project_id = SelectField(
-      'Project',
-      choices=[(project.id, project.title) for project in projects],
-      validators=[Required()]
-    )
 
 
 class GetYoutubeView(BaseView):
