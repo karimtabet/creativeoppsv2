@@ -72,6 +72,7 @@ admin.add_view(
 class IndexContentModelView(ModelView):
     can_create = False
     can_delete = False
+    column_list = ()
     form_overrides = {
       'feature_1_description': CKTextAreaField,
       'feature_2_description': CKTextAreaField,
