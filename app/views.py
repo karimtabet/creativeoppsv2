@@ -84,6 +84,7 @@ class IndexContentModelView(ModelView):
       'feature_2_description': CKTextAreaField,
       'feature_3_description': CKTextAreaField,
       'mid_page_text': CKTextAreaField,
+      'mid_page_text_2': CKTextAreaField,
       'mid_page_feature_1_description': CKTextAreaField,
       'mid_page_feature_2_description': CKTextAreaField,
       'mid_page_feature_3_description': CKTextAreaField
