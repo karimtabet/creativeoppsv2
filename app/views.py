@@ -4,6 +4,7 @@ from flask import render_template, request, flash
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.admin.model.template import macro
+from sqlalchemy import desc
 
 
 from app.app import app, db, admin
@@ -17,10 +18,14 @@ from app.forms import CKTextAreaField, GetFlickrForm, GetYoutubeForm
 def index():
     carousel_items = db.session.query(IndexCarouselItem).all()
     content = db.session.query(IndexContent).one()
+    recent_images = db.session.query(Image).join(Project).order_by(
+        desc(Project.datetime)
+    ).all()[:3]
     return render_template(
         'index.html',
         carousel_items=carousel_items,
-        content=content
+        content=content,
+        recent_images=recent_images
     )
 
 
@@ -76,7 +81,7 @@ admin.add_view(
 
 class IndexContentModelView(ModelView):
     list_template = 'admin/list_index_content.html'
-    can_create = False
+    can_create = True
     can_delete = False
     column_list = ()
     form_overrides = {
