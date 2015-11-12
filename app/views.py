@@ -16,7 +16,12 @@ from app.forms import CKTextAreaField, GetFlickrForm, GetYoutubeForm
 @app.route('/')
 def index():
     carousel_items = db.session.query(IndexCarouselItem).all()
-    return render_template('index.html', carousel_items=carousel_items)
+    content = db.session.query(IndexContent).one()
+    return render_template(
+        'index.html',
+        carousel_items=carousel_items,
+        content=content
+    )
 
 
 @app.route('/about', methods=['GET'])
