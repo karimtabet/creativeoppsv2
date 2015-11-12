@@ -92,7 +92,7 @@
 
             <div class="bkg-cover padding-72">
 
-                <h2 class="home-title-section margin-b54">Come and play with us</h2>
+                <h2 class="home-title-section margin-b54">{{ content.mid_page_heading }}</h2>
 
                 <div class="container">
 
@@ -100,11 +100,11 @@
 
                         <div class="col-md-6">
 
-                            <h4 class="margin-b24">Integer pretium egestas turpis pretium adipiscing tristique</h4>
+                            <h4 class="margin-b24">{{ content.mid_page_subheading }}</h4>
 
-                            <p>Suspendisse tempor sollicitudin consectetur. Duis tincidunt vulputate velit, a lobortis dolor porttitor vitae. Integer pellentesque eros vel nisi tincidunt posuere. Nullam mollis vel nulla a facilisis. Quisque blandit commodo orci,ut rhoncus lacus interdum ac. Pellentesque urna purus, fermentum quis turpis eu. Mauris vehicula eleifend metus.</p>
+                            <p>{{ content.mid_page_text }}</p>
 
-                            <p>Dolor mi, ac viverra nulla faucibus a. Morbi mi urna, scelerisque nec ornare ut, aliquet ut mi. Aliquam erat volutpat. Proin dignissim tempus cursus. Donec tincidunt, velit ut egestas egestas, metus massa mattis mauris, eu lacinia risus risus quis ligula. Quisque gravida erat in risus malesuada, sed pulvinar risus pellentesque. Etiam porttitor enim at lacinia laoreet. Praesent quis nulla non orci semper porta. </p>
+                            <p>{{ content.mid_page_text_2}}</p>
 
                         </div><!--end col-md-6-->
 
@@ -114,15 +114,15 @@
 
                                 <div class="home-play-img">
 
-                                    <img src={{ url_for('static', filename='images/home/play-1.jpg') }} alt="" />
+                                    <img src="{{ content.mid_page_feature_1_image_url }}" />
 
                                 </div><!--end home-play-img-->
 
                                 <div class="home-play-text">
 
-                                    <h5 class="margin-b16">Drawing</h5>
+                                    <h5 class="margin-b16">{{ content.mid_page_feature_1_title }}</h5>
 
-                                    <p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
+                                    <p>{{ content.mid_page_feature_1_description }}</p>
 
                                 </div><!--end home-play-text-->
 
@@ -133,15 +133,15 @@
 
                                 <div class="home-play-img">
 
-                                    <img src={{ url_for('static', filename='images/home/play-2.jpg') }} alt="" />
+                                    <img src="{{ content.mid_page_feature_2_image_url }}" />
 
                                 </div><!--end home-play-img-->
 
                                 <div class="home-play-text">
 
-                                    <h5 class="margin-b16">Bubbles</h5>
+                                    <h5 class="margin-b16">{{ content.mid_page_feature_2_title }}</h5>
 
-                                    <p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
+                                    <p>{{ content.mid_page_feature_2_description }}</p>
 
                                 </div><!--end home-play-text-->
 
@@ -151,15 +151,15 @@
 
                                 <div class="home-play-img">
 
-                                    <img src={{ url_for('static', filename='images/home/play-3.jpg') }} alt="" />
+                                    <img src="{{ content.mid_page_feature_3_image_url }}" />
 
                                 </div><!--end home-play-img-->
 
                                 <div class="home-play-text">
 
-                                    <h5 class="margin-b16">Games</h5>
+                                    <h5 class="margin-b16">{{ content.mid_page_feature_3_title }}</h5>
 
-                                    <p>Praesent lobortis ullamcorper hendrerit. Nulla tellus sapien, fermentum sit amet ultricies sed, blandit et nisl. Sed cursus lorem sem, vel consectetur ipsum tincidunt at.</p>
+                                    <p>{{ content.mid_page_feature_3_description }}</p>
 
                                 </div><!--end home-play-text-->
 
