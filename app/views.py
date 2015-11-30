@@ -81,7 +81,7 @@ admin.add_view(
 
 class IndexContentModelView(ModelView):
     list_template = 'admin/list_index_content.html'
-    can_create = True
+    can_create = False
     can_delete = False
     column_list = ()
     form_overrides = {
@@ -133,6 +133,23 @@ admin.add_view(
 )
 
 
+class ImageModelView(ModelView):
+    list_template = 'admin/list_projects.html'
+    column_list = ('thumbnail_url', 'image_url', 'project')
+    column_formatters = {'thumbnail_url': macro("preview_avatar")}
+    form_columns = ['image_url', 'thumbnail_url', 'project']
+
+
+admin.add_view(
+    ImageModelView(
+        Image,
+        db.session,
+        endpoint='images',
+        name='Images'
+    )
+)
+
+
 class GetFlickrView(BaseView):
     @expose('/', methods=('GET', 'POST'))
     def index(self):
@@ -144,7 +161,13 @@ class GetFlickrView(BaseView):
             )
         return self.render('admin/get_flickr.html', form=form)
 
-admin.add_view(GetFlickrView(name='Get Flickr Content', url='get_flickr'))
+admin.add_view(
+  GetFlickrView(
+    name='Get Flickr Content',
+    url='get_flickr',
+    category='Grab Content'
+  )
+)
 
 
 class GetYoutubeView(BaseView):
@@ -160,4 +183,10 @@ class GetYoutubeView(BaseView):
             )
         return self.render('admin/get_youtube.html', form=form)
 
-admin.add_view(GetYoutubeView(name='Get Youtube Content', url='get_youtube'))
+admin.add_view(
+  GetYoutubeView(
+    name='Get Youtube Content',
+    category='Grab Content',
+    url='get_youtube'
+  )
+)
