@@ -36,6 +36,9 @@ class Project(Base):
     def __repr__(self):
         return '<Project {title}>'.format(title=self.title)
 
+    def __str__(self):
+        return '{title}'.format(title=self.title)
+
 
 class Image(Base):
     __tablename__ = 'images'
