@@ -27,6 +27,8 @@
 
         <div class="container">
 
+        {% if project.videos %}
+
         <h4 class="gallery-type">Videos</h4>
 
         <div class="row albums-holder">
@@ -81,6 +83,10 @@
         </div><!--row-->
 
         <br><br>
+
+        {% endif %}
+
+        {% if project.images %}
 
         <h4 class="gallery-type">Pictures</h4>
 
@@ -255,6 +261,8 @@
         {% endfor %}
 
         </div><!--row-->
+
+        {% endif %}
 
         </section><!-- page-content-->
 
