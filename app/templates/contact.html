@@ -32,8 +32,15 @@
           <div class="col-sm-6 col-md-6">
 
             <div id="contact-form-holder">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                  <h5 style="color: green;">{{ messages[0] }}</h5>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
 
-              <form method="post" id="contact-form" action='include/contact-process.php'>
+              <form method="post" id="contact-form">
 
                 <label>Name</label>
                 <p><input type="text" name="name" class="comm-field" /></p>
@@ -45,6 +52,7 @@
                 <p> <textarea name="message" id="msg-contact" rows="7"></textarea></p>
                 <p class="contact-btn"><input type="submit" value="Send message" id="submit-contact"/></p>
               </form>
+
             </div><!-- contact-form-holder-->
 
             <div id="output-contact"></div>
