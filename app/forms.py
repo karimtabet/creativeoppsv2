@@ -38,3 +38,10 @@ class GetYoutubeForm(Form):
       choices=[(project.id, project.title) for project in projects],
       validators=[Required()]
     )
+
+
+class ContactForm(Form):
+    name = TextField('Name')
+    email = TextField('Email')
+    subject = TextField('Subject')
+    message = TextField('Message')
