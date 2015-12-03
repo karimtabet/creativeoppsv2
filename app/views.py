@@ -11,7 +11,12 @@ from app.app import app, db, admin
 from app.models import IndexCarouselItem, IndexContent, Project, Image
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
-from app.forms import CKTextAreaField, GetFlickrForm, GetYoutubeForm
+from app.forms import (
+  CKTextAreaField,
+  GetFlickrForm,
+  GetYoutubeForm,
+  ContactForm
+)
 
 
 @app.route('/')
@@ -58,9 +63,12 @@ def gallery(project_id):
     return render_template('gallery.html', project=project)
 
 
-@app.route('/contact', methods=['GET'])
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    if request.method == 'POST':
+        # print(request.form)
+        flash('Message succesffully sent')
+    return render_template('contact.html', form=ContactForm(request.form))
 
 
 class IndexCarouselItemModelView(ModelView):
