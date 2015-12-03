@@ -68,6 +68,10 @@
 
                 </div><!-- row-->
 
+                {% if project.images or project.videos %}
+                    <div class="alignc"><a href="/gallery/{{ project.id }}" class="btn-color margin-t54">View Gallery</a></div>
+                {% endif %}
+
             </div><!-- container-->
 
         </div><!-- page-content-->
