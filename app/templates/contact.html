@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  {% block head %}
+  {{ super() }}
+  {% endblock %}
+
+  <body>
+    {% block body %}
+    {{ super() }}
+
+
+    <section class="page-top wrap">
+
+      <h2 class="page-section-title">Get in Touch</h2>
+
+    </section><!-- page-top -->
+    <div class="zz-bottom"></div>
+
+    <section class="page-content wrap">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-6 col-md-6">
+
+            <div id="contact-form-holder">
+
+              <form method="post" id="contact-form" action='include/contact-process.php'>
+
+                <label>Name</label>
+                <p><input type="text" name="name" class="comm-field" /></p>
+                <label>Email</label>
+                <p><input type="text" name="email" class="comm-field"/></p>
+                <label>Subject</label>
+                <p><input type="text" name="subject" class="comm-field" /></p>
+                <label>Message</label>
+                <p> <textarea name="message" id="msg-contact" rows="7"></textarea></p>
+                <p class="contact-btn"><input type="submit" value="Send message" id="submit-contact"/></p>
+              </form>
+            </div><!-- contact-form-holder-->
+
+            <div id="output-contact"></div>
+
+
+          </div><!-- col-md-6-->
+
+          <div class="col-sm-6 col-md-6">
+
+            <div class="contact-right">
+
+              <h5 class="widgettitle">Find us:</h5>
+
+              <ul class="contact-social">
+                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+              </ul>
+
+              <p>Phasellus porttitor posuere tempor. Aenean facilisis, neque a varius porttitor, risus dui tempus libero, dictum aliquet justo enim vitae lorem. Aliquam lacinia lacinia mi ac convallis. Nulla et lacus et risus laoreet consectetur sed non magna.</p>
+
+              <ul class="contact-info">
+                <li><i class="fa fa-map-marker"></i>Address: 30 New York Street, New York, USA</li>
+                <li><i class="fa fa-mobile"></i>Phone: 000 - 111 - 222</li>
+                <li><i class="fa fa-fax"></i>Fax: 000 - 111 - 222</li>
+                <li><i class="fa fa-envelope"></i>Email: contact [at] lawyers [dot] com</li>
+              </ul>
+
+              <div class="video-widget">
+
+                <iframe height="400" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=ro&amp;geocode=&amp;q=New+York,+NY,+United+States&amp;aq=3&amp;oq=New+York+&amp;sll=40.765982,-73.974037&amp;sspn=0.104791,0.264187&amp;ie=UTF8&amp;hq=&amp;hnear=New+York,+Manhattan,+New+York&amp;ll=40.714353,-74.005973&amp;spn=0.013109,0.033023&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+
+              </div>
+
+            </div><!--contact-right-->
+
+          </div><!--col-md-6-->
+
+        </div><!-- row -->
+
+      </div><!-- container-->
+
+    </section><!-- page-content-->
+
+    {% endblock %}
+
+    {% block footer %}
+    {{ super() }}
+    {% endblock %}
+
+
+  </body>
+</html>
