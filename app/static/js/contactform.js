@@ -1,23 +1,3 @@
-(function($) {
-    "use strict";
-	
-	var options2 = { success: showResponseContact, beforeSubmit: showRequestContact}; 
-    $('#contact-form').submit(function() { 
-        $(this).ajaxSubmit(options2); 
-        return false; 
-    });
-	
-	})(jQuery);
-
-function showResponseContact(responseText, statusText)  { 
-	if (statusText == 'success') {
-		$('#contact-form-holder').html('<h5>Message sent</h5>'); 
-		$('#output-contact').html('<p>' + $('someText', responseText).html()  + '</p>'); 
-	} else {
-		alert('status: ' + statusText + '\n\nSomething is wrong here');
-	}
-}
-
 function showRequestContact(formData, jqForm, options2) { 
 	var form = jqForm[0];
 	var validRegExp = /^[^@]+@[^@]+.[a-z]{2,}$/i;
