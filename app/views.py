@@ -58,6 +58,11 @@ def gallery(project_id):
     return render_template('gallery.html', project=project)
 
 
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
+
 class IndexCarouselItemModelView(ModelView):
     list_template = 'admin/list_projects.html'
     column_list = ('image_url', 'title', 'description', 'read_more_url')
