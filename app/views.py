@@ -8,7 +8,7 @@ from sqlalchemy import desc
 
 
 from app.app import app, db, admin
-from app.models import IndexCarouselItem, IndexContent, Project, Image
+from app.models import IndexCarouselItem, IndexContent, Project, Image, Video
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
 from app.forms import (
@@ -159,6 +159,23 @@ admin.add_view(
         db.session,
         endpoint='images',
         name='Images'
+    )
+)
+
+
+class VideoModelView(ModelView):
+    list_template = 'admin/list_projects.html'
+    column_list = ('thumbnail_url', 'video_url', 'project')
+    column_formatters = {'thumbnail_url': macro("preview_avatar")}
+    form_columns = ['video_url', 'thumbnail_url', 'project']
+
+
+admin.add_view(
+    VideoModelView(
+        Video,
+        db.session,
+        endpoint='videos',
+        name='Videos'
     )
 )
 
