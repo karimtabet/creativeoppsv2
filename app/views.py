@@ -41,7 +41,7 @@ def about_us():
 
 @app.route('/projects', methods=['GET'])
 def projects():
-    projects = db.session.query(Project).all()
+    projects = db.session.query(Project).order_by(desc(Project.datetime)).all()
     return render_template('projects.html', projects=projects)
 
 
