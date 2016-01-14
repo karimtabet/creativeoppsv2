@@ -94,7 +94,7 @@ admin.add_view(
 
 class IndexContentModelView(ModelView):
     list_template = 'admin/list_index_content.html'
-    can_create = True
+    can_create = False
     can_delete = False
     column_list = ()
     form_overrides = {
