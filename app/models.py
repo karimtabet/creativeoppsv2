@@ -116,3 +116,7 @@ class IndexContent(Base):
     mid_page_feature_3_title = Column(String, nullable=False)
     mid_page_feature_3_image_url = Column(String, nullable=False)
     mid_page_feature_3_description = Column(String, nullable=False)
+
+    latest_activity_image_1_url = Column(String, nullable=False)
+    latest_activity_image_2_url = Column(String, nullable=False)
+    latest_activity_image_3_url = Column(String, nullable=False)
