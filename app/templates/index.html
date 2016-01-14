@@ -183,21 +183,43 @@
 
             <div class="container">
 
-                {% for image in recent_images %}
                 <div class="row gallery-holder">
 
                     <div class="col-md-4">
 
                         <figure class="img-overlay gal-img">
 
-                            <a href="{{ image.image_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                            <a href="{{ content.latest_activity_image_1_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
                                 <span class="btn-more btn-zoom"></span>
-                                <img class="img-responsive" src="{{ image.thumbnail_url }}" alt="">
+                                <img class="img-responsive" src="{{ content.latest_activity_image_1_url }}" alt="">
                             </a>
                         </figure>
 
                     </div><!--end col-md-4-->
-                    {% endfor %}
+
+                    <div class="col-md-4">
+
+                        <figure class="img-overlay gal-img">
+
+                            <a href="{{ content.latest_activity_image_2_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                                <span class="btn-more btn-zoom"></span>
+                                <img class="img-responsive" src="{{ content.latest_activity_image_2_url }}" alt="">
+                            </a>
+                        </figure>
+
+                    </div><!--end col-md-4-->
+
+                    <div class="col-md-4">
+
+                        <figure class="img-overlay gal-img">
+
+                            <a href="{{ content.latest_activity_image_3_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                                <span class="btn-more btn-zoom"></span>
+                                <img class="img-responsive" src="{{ content.latest_activity_image_3_url }}" alt="">
+                            </a>
+                        </figure>
+
+                    </div><!--end col-md-4-->
 
                     <div class="alignc"><a href="/galleries" class="btn-color margin-t54">View Gallery</a></div>
 
