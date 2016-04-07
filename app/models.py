@@ -42,10 +42,10 @@ class Project(Base):
 
     def as_dict(self):
         d = {'title': self.title,
-             'description': markdown(self.description),
+             'description': self.description,
              'location': self.location,
              'body': markdown(self.body),
-             'datetime': self.datetime,
+             'datetime': self.datetime.strftime("%a, %d %b %Y"),
              'avatar_url': self.avatar_url}
         if len(self.images) > 0:
             d['images'] = [image.as_dict() for image in self.images]
