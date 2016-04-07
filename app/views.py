@@ -26,10 +26,11 @@ def index():
     recent_images = db.session.query(Image).join(Project).order_by(
         desc(Project.datetime)
     ).all()[:3]
+    print(content.as_dict()['mid_page_text'])
     return render_template(
         'index.html',
         carousel_items=carousel_items,
-        content=content,
+        content=content.as_dict(),
         recent_images=recent_images
     )
 
@@ -103,7 +104,6 @@ class IndexContentModelView(ModelView):
       'feature_2_description': CKTextAreaField,
       'feature_3_description': CKTextAreaField,
       'mid_page_text': CKTextAreaField,
-      'mid_page_text_2': CKTextAreaField,
       'mid_page_feature_1_description': CKTextAreaField,
       'mid_page_feature_2_description': CKTextAreaField,
       'mid_page_feature_3_description': CKTextAreaField
