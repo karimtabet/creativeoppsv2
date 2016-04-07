@@ -156,7 +156,109 @@
 
         </div><!--row-->
 
+        <div class="row events-holder">
 
+          {% for project in projects[15:18] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project["id"] }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project["avatar_url"] }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project["id"] }}">{{ project["title"] }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project["datetime"] }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project["location"] }}</li>
+            </ul>
+
+            <p>{{ project["description"] }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[18:21] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project["id"] }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project["avatar_url"] }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project["id"] }}">{{ project["title"] }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project["datetime"] }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project["location"] }}</li>
+            </ul>
+
+            <p>{{ project["description"] }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[21:24] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project["id"] }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project["avatar_url"] }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project["id"] }}">{{ project["title"] }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project["datetime"] }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project["location"] }}</li>
+            </ul>
+
+            <p>{{ project["description"] }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
+
+        <div class="row events-holder">
+
+          {% for project in projects[24:27] %}
+          <div class="col-md-4 event">
+
+            <figure class="img-overlay">
+                <a href="project/{{ project["id"] }}">
+                    <span class="btn-more btn-link"></span>
+                    <img class="img-responsive" src="{{ project["avatar_url"] }}" alt="">
+                </a>
+            </figure>
+
+            <h5><a href="project/{{ project["id"] }}">{{ project["title"] }}</a></h5>
+
+            <ul class="event-small-meta">
+                <li><i class="fa fa-calendar"></i>{{ project["datetime"] }}</li>
+                <li><i class="fa fa-map-marker"></i>{{ project["location"] }}</li>
+            </ul>
+
+            <p>{{ project["description"] }}</p>
+
+          </div><!--end col-md-4-->
+          {% endfor %}
+
+        </div><!--row-->
 
       </div><!-- container-->
 
