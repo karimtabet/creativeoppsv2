@@ -408,7 +408,8 @@ color:#ffffff;
 line-height:1.2;
 margin-bottom:0;}
 
-.bkg-cover p{color:#CCEFF9;}
+.bkg-cover p, .bkg-cover li, .bkg-cover h1, .bkg-cover h1, .bkg-cover h2, .bkg-cover h3, .bkg-cover a{color:#CCEFF9;}
+.bkg-cover a{text-decoration: underline;}
 .home-play-holder{margin-top:24px;}
 .home-play-holder:first-child{margin-top:0px;}
 
