@@ -42,14 +42,14 @@ def about_us():
 @app.route('/projects', methods=['GET'])
 def projects():
     projects = db.session.query(Project).order_by(desc(Project.datetime)).all()
-    page_data = {'projects': [project.as_dict() for project in projects]}
-    return render_template('projects.html', page_data=page_data)
+    return render_template('projects.html', projects=[project.as_dict()
+                                                      for project in projects])
 
 
 @app.route('/project/<project_id>', methods=['GET'])
 def project(project_id):
     project = db.session.query(Project).get(project_id)
-    return render_template('project.html', page_data=project.as_dict())
+    return render_template('project.html', project=project.as_dict())
 
 
 @app.route('/galleries', methods=['GET'])
