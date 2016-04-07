@@ -105,7 +105,7 @@ class IndexCarouselItem(Base):
 
 
 class IndexContent(Base):
-    __tablename__ = "index_content"
+    __tablename__ = 'index_content'
 
     uuid = Column(UUID(as_uuid=True), primary_key=True)
 
@@ -125,9 +125,7 @@ class IndexContent(Base):
     feature_3_read_more_url = Column(String, nullable=False)
 
     mid_page_heading = Column(String, nullable=False)
-    mid_page_subheading = Column(String, nullable=False)
     mid_page_text = Column(String, nullable=False)
-    mid_page_text_2 = Column(String, nullable=False)
 
     mid_page_feature_1_title = Column(String, nullable=False)
     mid_page_feature_1_image_url = Column(String, nullable=False)
@@ -144,3 +142,40 @@ class IndexContent(Base):
     latest_activity_image_1_url = Column(String, nullable=False)
     latest_activity_image_2_url = Column(String, nullable=False)
     latest_activity_image_3_url = Column(String, nullable=False)
+
+    def as_dict(self):
+        return {'feature_1_title': self.feature_1_title,
+                'feature_1_image_url': self.feature_1_image_url,
+                'feature_1_description': self.feature_1_description,
+                'feature_1_read_more_url': self.feature_1_read_more_url,
+                'feature_2_title': self.feature_2_title,
+                'feature_2_image_url': self.feature_2_image_url,
+                'feature_2_description': self.feature_2_description,
+                'feature_2_read_more_url': self.feature_2_read_more_url,
+                'feature_3_title': self.feature_3_title,
+                'feature_3_image_url': self.feature_3_image_url,
+                'feature_3_description': self.feature_3_description,
+                'feature_3_read_more_url': self.feature_3_read_more_url,
+                'mid_page_heading': self.mid_page_heading,
+                'mid_page_text': markdown(self.mid_page_text),
+                'mid_page_feature_1_title': self.mid_page_feature_1_title,
+                'mid_page_feature_1_image_url': (
+                    self.mid_page_feature_1_image_url),
+                'mid_page_feature_1_description': (
+                    self.mid_page_feature_1_description),
+                'mid_page_feature_2_title': self.mid_page_feature_2_title,
+                'mid_page_feature_2_image_url': (
+                    self.mid_page_feature_2_image_url),
+                'mid_page_feature_2_description': (
+                    self.mid_page_feature_2_description),
+                'mid_page_feature_3_title': self.mid_page_feature_3_title,
+                'mid_page_feature_3_image_url': (
+                    self.mid_page_feature_3_image_url),
+                'mid_page_feature_3_description': (
+                    self.mid_page_feature_3_description),
+                'latest_activity_image_1_url': (
+                    self.latest_activity_image_1_url),
+                'latest_activity_image_2_url': (
+                    self.latest_activity_image_2_url),
+                'latest_activity_image_3_url': (
+                    self.latest_activity_image_3_url)}
