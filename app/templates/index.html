@@ -58,27 +58,27 @@
                 <div class="row">
 
                     <div class="col-md-4 home-feature">
-                        <h5>{{ content.feature_1_title }}</h5>
-                        <div class="img-feature"><img class="img-responsive" src="{{ content.feature_1_image_url }}" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;"/></div>
-                        <p>{{ content.feature_1_description }}</p>
+                        <h5>{{ content['feature_1_title'] }}</h5>
+                        <div class="img-feature"><img class="img-responsive" src="{{ content['feature_1_image_url'] }}" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;"/></div>
+                        <p>{{ content['feature_1_description'] }}</p>
 
-                        <a href="{{ content.feature_1_read_more_url }}" class="btn-color margin-t32">Read More</a>
+                        <a href="{{ content['feature_1_read_more_url'] }}" class="btn-color margin-t32">Read More</a>
                     </div><!--end home-feature-->
 
                     <div class="col-md-4 home-feature">
-                        <h5>{{ content.feature_2_title }}</h5>
-                        <div class="img-feature"><img class="img-responsive" src="{{ content.feature_2_image_url }}" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;"/></div>
-                        <p>{{ content.feature_2_description }}</p>
+                        <h5>{{ content['feature_2_title'] }}</h5>
+                        <div class="img-feature"><img class="img-responsive" src="{{ content['feature_2_image_url'] }}" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;"/></div>
+                        <p>{{ content['feature_2_description'] }}</p>
 
-                        <a href="{{ content.feature_2_read_more_url }}" class="btn-color margin-t32">Read More</a>
+                        <a href="{{ content['feature_2_read_more_url'] }}" class="btn-color margin-t32">Read More</a>
                     </div><!--end home-feature-->
 
                     <div class="col-md-4 home-feature">
-                        <h5>{{ content.feature_3_title }}</h5>
-                        <div class="img-feature"><img class="img-responsive" src="{{ content.feature_3_image_url }}" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;"/></div>
-                        <p>{{ content.feature_3_description }}</p>
+                        <h5>{{ content['feature_3_title'] }}</h5>
+                        <div class="img-feature"><img class="img-responsive" src="{{ content['feature_3_image_url'] }}" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;"/></div>
+                        <p>{{ content['feature_3_description'] }}</p>
 
-                        <a href="{{ content.feature_3_read_more_url }}" class="btn-color margin-t32">Read More</a>
+                        <a href="{{ content['feature_3_read_more_url'] }}" class="btn-color margin-t32">Read More</a>
                     </div><!--end home-feature-->
 
                 </div><!--end row-->
@@ -92,7 +92,7 @@
 
             <div class="bkg-cover padding-72">
 
-                <h2 class="home-title-section margin-b54">{{ content.mid_page_heading }}</h2>
+                <h2 class="home-title-section margin-b54">{{ content['mid_page_heading'] }}</h2>
 
                 <div class="container">
 
@@ -100,11 +100,7 @@
 
                         <div class="col-md-6">
 
-                            <h4 class="margin-b24">{{ content.mid_page_subheading }}</h4>
-
-                            <p>{{ content.mid_page_text }}</p>
-
-                            <p>{{ content.mid_page_text_2}}</p>
+                            {{ content['mid_page_text']|safe }}
 
                         </div><!--end col-md-6-->
 
@@ -114,15 +110,15 @@
 
                                 <div class="home-play-img">
 
-                                    <img src="{{ content.mid_page_feature_1_image_url }}" />
+                                    <img src="{{ content['mid_page_feature_1_image_url'] }}" />
 
                                 </div><!--end home-play-img-->
 
                                 <div class="home-play-text">
 
-                                    <h5 class="margin-b16">{{ content.mid_page_feature_1_title }}</h5>
+                                    <h5 class="margin-b16">{{ content['mid_page_feature_1_title'] }}</h5>
 
-                                    <p>{{ content.mid_page_feature_1_description }}</p>
+                                    <p>{{ content['mid_page_feature_1_description'] }}</p>
 
                                 </div><!--end home-play-text-->
 
@@ -133,15 +129,15 @@
 
                                 <div class="home-play-img">
 
-                                    <img src="{{ content.mid_page_feature_2_image_url }}" />
+                                    <img src="{{ content['mid_page_feature_2_image_url'] }}" />
 
                                 </div><!--end home-play-img-->
 
                                 <div class="home-play-text">
 
-                                    <h5 class="margin-b16">{{ content.mid_page_feature_2_title }}</h5>
+                                    <h5 class="margin-b16">{{ content['mid_page_feature_2_title'] }}</h5>
 
-                                    <p>{{ content.mid_page_feature_2_description }}</p>
+                                    <p>{{ content['mid_page_feature_2_description'] }}</p>
 
                                 </div><!--end home-play-text-->
 
@@ -151,15 +147,15 @@
 
                                 <div class="home-play-img">
 
-                                    <img src="{{ content.mid_page_feature_3_image_url }}" />
+                                    <img src="{{ content['mid_page_feature_3_image_url'] }}" />
 
                                 </div><!--end home-play-img-->
 
                                 <div class="home-play-text">
 
-                                    <h5 class="margin-b16">{{ content.mid_page_feature_3_title }}</h5>
+                                    <h5 class="margin-b16">{{ content['mid_page_feature_3_title'] }}</h5>
 
-                                    <p>{{ content.mid_page_feature_3_description }}</p>
+                                    <p>{{ content['mid_page_feature_3_description'] }}</p>
 
                                 </div><!--end home-play-text-->
 
@@ -189,9 +185,9 @@
 
                         <figure class="img-overlay gal-img">
 
-                            <a href="{{ content.latest_activity_image_1_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                            <a href="{{ content['latest_activity_image_1_url'] }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
                                 <span class="btn-more btn-zoom"></span>
-                                <img class="img-responsive" src="{{ content.latest_activity_image_1_url }}" alt="">
+                                <img class="img-responsive" src="{{ content['latest_activity_image_1_url'] }}" alt="">
                             </a>
                         </figure>
 
@@ -201,9 +197,9 @@
 
                         <figure class="img-overlay gal-img">
 
-                            <a href="{{ content.latest_activity_image_2_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                            <a href="{{ content['latest_activity_image_2_url'] }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
                                 <span class="btn-more btn-zoom"></span>
-                                <img class="img-responsive" src="{{ content.latest_activity_image_2_url }}" alt="">
+                                <img class="img-responsive" src="{{ content['latest_activity_image_2_url'] }}" alt="">
                             </a>
                         </figure>
 
@@ -213,9 +209,9 @@
 
                         <figure class="img-overlay gal-img">
 
-                            <a href="{{ content.latest_activity_image_3_url }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
+                            <a href="{{ content['latest_activity_image_3_url'] }} }}" class="lightbox" data-rel="prettyPhoto[gallery]" title="Image 1">
                                 <span class="btn-more btn-zoom"></span>
-                                <img class="img-responsive" src="{{ content.latest_activity_image_3_url }}" alt="">
+                                <img class="img-responsive" src="{{ content['latest_activity_image_3_url'] }}" alt="">
                             </a>
                         </figure>
 
