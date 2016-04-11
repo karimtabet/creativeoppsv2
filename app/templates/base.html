@@ -44,6 +44,7 @@
                                     <li id="about_btn"><a href="/about">About</a></li>
                                     <li id="galleries_btn"><a href="/galleries">Galleries</a></li>
                                     <li id="projects_btn"><a href="/projects">Projects</a></li>
+                                    <li id="policies_btn"><a href="/policies">Policies</a></li>
                                     <li id="contact_btn"><a href="/contact">Contact</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
@@ -141,6 +142,9 @@ $(document).ready(function(){
     }
     else if(window.location.pathname.substring(0, 8) == '/project' ) {
         $('#projects_btn').addClass('current_page_item');
+    }
+    else if(window.location.pathname == '/policies' ) {
+        $('#policies_btn').addClass('current_page_item');
     }
     else if(window.location.pathname == '/contact') {
         $('#contact_btn').addClass('current_page_item');
