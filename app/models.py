@@ -1,3 +1,4 @@
+from uuid import uuid4
 from datetime import datetime
 
 from sqlalchemy import MetaData, Column, String, DateTime, ForeignKey
@@ -92,6 +93,18 @@ class Video(Base):
         return {'video_url': self.video_url,
                 'project_id': self.project_id,
                 'thumbnail_url': self.thumbnail_url}
+
+
+class Policy(Base):
+    __tablename__ = 'policies'
+
+    policy_uuid = Column(UUID(as_uuid=True), primary_key=True, default=uuid4())
+    heading = Column(String, nullable=False)
+    body = Column(String, nullable=False)
+
+    def as_dict(self):
+        return {'heading': self.heading,
+                'body': markdown(self.body)}
 
 
 class IndexCarouselItem(Base):

@@ -5,10 +5,12 @@ from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.admin.model.template import macro
 from sqlalchemy import desc
+from markdown import markdown
 
 
 from app.app import app, db, admin
-from app.models import IndexCarouselItem, IndexContent, Project, Image, Video
+from app.models import (IndexCarouselItem, IndexContent, Project, Image, Video,
+                        Policy)
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
 from app.forms import (
@@ -65,6 +67,13 @@ def gallery(project_id):
     return render_template('gallery.html', project=project)
 
 
+@app.route('/policies', methods=['GET'])
+def policies():
+    policies = db.session.query(Policy).all()
+    return render_template('policies.html', policies=[policy.as_dict()
+                                                      for policy in policies])
+
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -74,9 +83,9 @@ def contact():
 
 
 class IndexCarouselItemModelView(ModelView):
-    list_template = 'admin/list_projects.html'
+    list_template = 'admin/list_macros.html'
     column_list = ('image_url', 'title', 'description', 'read_more_url')
-    column_formatters = {'image_url': macro("preview_avatar")}
+    column_formatters = {'image_url': macro('preview_avatar')}
     column_labels = {'image_url': 'Image'}
     form_overrides = {'description': CKTextAreaField}
 
@@ -124,7 +133,7 @@ admin.add_view(
 
 
 class ProjectModelView(ModelView):
-    list_template = 'admin/list_projects.html'
+    list_template = 'admin/list_macros.html'
     edit_template = 'admin/edit_project.html'
     form_columns = [
       'title',
@@ -135,7 +144,7 @@ class ProjectModelView(ModelView):
       'body'
     ]
     column_list = ('avatar_url', 'title', 'location', 'datetime')
-    column_formatters = {'avatar_url': macro("preview_avatar")}
+    column_formatters = {'avatar_url': macro('preview_avatar')}
     column_labels = {'avatar_url': 'Avatar'}
     form_overrides = {'body': CKTextAreaField, 'description': CKTextAreaField}
 
@@ -149,9 +158,9 @@ admin.add_view(
 
 
 class ImageModelView(ModelView):
-    list_template = 'admin/list_projects.html'
+    list_template = 'admin/list_macros.html'
     column_list = ('thumbnail_url', 'image_url', 'project')
-    column_formatters = {'thumbnail_url': macro("preview_avatar")}
+    column_formatters = {'thumbnail_url': macro('preview_avatar')}
     form_columns = ['image_url', 'thumbnail_url', 'project']
 
 
@@ -166,9 +175,9 @@ admin.add_view(
 
 
 class VideoModelView(ModelView):
-    list_template = 'admin/list_projects.html'
+    list_template = 'admin/list_macros.html'
     column_list = ('thumbnail_url', 'video_url', 'project')
-    column_formatters = {'thumbnail_url': macro("preview_avatar")}
+    column_formatters = {'thumbnail_url': macro('preview_avatar')}
     form_columns = ['video_url', 'thumbnail_url', 'project']
 
 
@@ -182,14 +191,29 @@ admin.add_view(
 )
 
 
+class PolicyModelView(ModelView):
+    list_template = 'admin/list_macros.html'
+    form_overrides = {'body': CKTextAreaField, 'description': CKTextAreaField}
+    column_formatters = {'body': macro('render_markdown')}
+
+admin.add_view(
+    PolicyModelView(
+        Policy,
+        db.session,
+        endpoint='policies',
+        name='Policies'
+    )
+)
+
+
 class GetFlickrView(BaseView):
     @expose('/', methods=('GET', 'POST'))
     def index(self):
         form = GetFlickrForm(request.form)
         if form.validate_on_submit():
-            get_flickr_images(form.data["album_id"], form.data["project_id"])
+            get_flickr_images(form.data['album_id'], form.data['project_id'])
             flash('Succesffully added images to {project_id}'.format(
-              project_id=form.data["project_id"])
+              project_id=form.data['project_id'])
             )
         return self.render('admin/get_flickr.html', form=form)
 
@@ -208,10 +232,10 @@ class GetYoutubeView(BaseView):
         form = GetYoutubeForm(request.form)
         if form.validate_on_submit():
             get_youtube_videos(
-              form.data["video_urls"], form.data["project_id"]
+              form.data['video_urls'], form.data['project_id']
             )
             flash('Succesffully added images to {project_id}'.format(
-              project_id=form.data["project_id"])
+              project_id=form.data['project_id'])
             )
         return self.render('admin/get_youtube.html', form=form)
 
