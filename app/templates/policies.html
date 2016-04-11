@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+<body>
+{% block body %}
+    {{ super() }}
+  
+
+<section class="page-top wrap">
+
+	<h2 class="page-section-title">Policies</h2>
+
+</section><!-- page-top -->
+  <div class="zz-bottom"></div>
+
+<section class="page-content wrap">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-sm-10 col-md-12">
+
+<ul class="faq-list">
+{% for policy in policies %}
+<li>
+<h5 class="faq-title"><a href="#faq1">{{ policy.heading }}</a></h5>
+<div id="faq1" class="faq-section">
+<p>{{ policy.body|safe }}</p>
+</div>
+</li>
+{% endfor %}
+</ul>
+
+</div><!-- col-md-8-->
+
+</div><!-- container-->
+
+</section><!-- page-content-->
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
+
+
+    </body>
+</html>
