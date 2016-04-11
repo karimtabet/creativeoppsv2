@@ -17,7 +17,9 @@
     {% endif %}
 
 {% else %}
-No cover image for this curated list
+No cover image for this project
 {% endif %}
-</a>
+{% endmacro %}
+{% macro render_markdown(model, column) %}
+    {{ model.as_dict()['body']|safe }}
 {% endmacro %}
