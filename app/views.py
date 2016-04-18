@@ -4,11 +4,10 @@ from flask import render_template, request, flash
 from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.admin.model.template import macro
+from flask.ext.mail import Message
 from sqlalchemy import desc
-from markdown import markdown
 
-
-from app.app import app, db, admin
+from app.app import app, db, admin, mail
 from app.models import (IndexCarouselItem, IndexContent, Project, Image, Video,
                         Policy)
 from app.images import get_flickr_images
@@ -28,7 +27,6 @@ def index():
     recent_images = db.session.query(Image).join(Project).order_by(
         desc(Project.datetime)
     ).all()[:3]
-    print(content.as_dict()['mid_page_text'])
     return render_template(
         'index.html',
         carousel_items=carousel_items,
@@ -77,8 +75,19 @@ def policies():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        # print(request.form)
-        flash('Message succesffully sent')
+        email = request.form
+        try:
+            msg = Message(email.get('subject'),
+                          sender='contact@creativeopportunities.co.uk',
+                          recipients=['contact@creativeopportunities.co.uk'],
+                          body=('New Email from: {} {} \n\n{}'.format(
+                                email.get('name'), email.get('email'),
+                                email.get('message'))))
+            mail.send(msg)
+            flash('Message succesffully sent')
+        except Exception:
+            flash('Message failed')
+
     return render_template('contact.html', form=ContactForm(request.form))
 
 
