@@ -65,11 +65,11 @@ def gallery(project_id):
     return render_template('gallery.html', project=project)
 
 
-@app.route('/policies', methods=['GET'])
-def policies():
+@app.route('/publications', methods=['GET'])
+def publications():
     policies = db.session.query(Policy).all()
-    return render_template('policies.html', policies=[policy.as_dict()
-                                                      for policy in policies])
+    return render_template('publications.html',
+                           policies=[policy.as_dict() for policy in policies])
 
 
 @app.route('/contact', methods=['GET', 'POST'])
