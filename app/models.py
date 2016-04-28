@@ -42,7 +42,8 @@ class Project(Base):
         return '{title}'.format(title=self.title)
 
     def as_dict(self):
-        d = {'title': self.title,
+        d = {'id': self.id,
+             'title': self.title,
              'description': self.description,
              'location': self.location,
              'body': markdown(self.body),
