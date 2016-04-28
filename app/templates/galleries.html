@@ -121,6 +121,63 @@
                     {% endfor %}
                 </div>
 
+                <div class="row albums-holder">
+                    {% for project in projects[15:18] %}
+                    <div class="col-md-4 gallery">
+
+                        <figure class="img-overlay gal-img">
+
+                            <a href="gallery/{{ project.id }}">
+                                <span class="btn-more btn-link"></span>
+                                <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                            </a>
+                        </figure>
+
+                        <h5><a href="gallery/{{ project.id }}">{{ project.title }}</a></h5>
+                        <p>( {{ project.videos|length }} video(s), {{ project.images|length }} picture(s) )</p>
+
+                    </div><!--end col-md-4-->
+                    {% endfor %}
+                </div>
+
+                <div class="row albums-holder">
+                    {% for project in projects[18:21] %}
+                    <div class="col-md-4 gallery">
+
+                        <figure class="img-overlay gal-img">
+
+                            <a href="gallery/{{ project.id }}">
+                                <span class="btn-more btn-link"></span>
+                                <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                            </a>
+                        </figure>
+
+                        <h5><a href="gallery/{{ project.id }}">{{ project.title }}</a></h5>
+                        <p>( {{ project.videos|length }} video(s), {{ project.images|length }} picture(s) )</p>
+
+                    </div><!--end col-md-4-->
+                    {% endfor %}
+                </div>
+
+                <div class="row albums-holder">
+                    {% for project in projects[21:24] %}
+                    <div class="col-md-4 gallery">
+
+                        <figure class="img-overlay gal-img">
+
+                            <a href="gallery/{{ project.id }}">
+                                <span class="btn-more btn-link"></span>
+                                <img class="img-responsive" src="{{ project.avatar_url }}" alt="">
+                            </a>
+                        </figure>
+
+                        <h5><a href="gallery/{{ project.id }}">{{ project.title }}</a></h5>
+                        <p>( {{ project.videos|length }} video(s), {{ project.images|length }} picture(s) )</p>
+
+                    </div><!--end col-md-4-->
+                    {% endfor %}
+                </div>
+
             </div><!-- container-->
 
         </section><!-- page-content-->
