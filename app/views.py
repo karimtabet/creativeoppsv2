@@ -13,10 +13,10 @@ from app.models import (IndexCarouselItem, IndexContent, Project, Image, Video,
 from app.images import get_flickr_images
 from app.videos import get_youtube_videos
 from app.forms import (
-  CKTextAreaField,
-  GetFlickrForm,
-  GetYoutubeForm,
-  ContactForm
+    CKTextAreaField,
+    GetFlickrForm,
+    GetYoutubeForm,
+    ContactForm
 )
 
 
@@ -118,13 +118,13 @@ class IndexContentModelView(ModelView):
     can_delete = False
     column_list = ()
     form_overrides = {
-      'feature_1_description': CKTextAreaField,
-      'feature_2_description': CKTextAreaField,
-      'feature_3_description': CKTextAreaField,
-      'mid_page_text': CKTextAreaField,
-      'mid_page_feature_1_description': CKTextAreaField,
-      'mid_page_feature_2_description': CKTextAreaField,
-      'mid_page_feature_3_description': CKTextAreaField
+        'feature_1_description': CKTextAreaField,
+        'feature_2_description': CKTextAreaField,
+        'feature_3_description': CKTextAreaField,
+        'mid_page_text': CKTextAreaField,
+        'mid_page_feature_1_description': CKTextAreaField,
+        'mid_page_feature_2_description': CKTextAreaField,
+        'mid_page_feature_3_description': CKTextAreaField
     }
 
     def on_model_change(self, form, model, is_created):
@@ -145,12 +145,12 @@ class ProjectModelView(ModelView):
     list_template = 'admin/list_macros.html'
     edit_template = 'admin/edit_project.html'
     form_columns = [
-      'title',
-      'location',
-      'datetime',
-      'avatar_url',
-      'description',
-      'body'
+        'title',
+        'location',
+        'datetime',
+        'avatar_url',
+        'description',
+        'body'
     ]
     column_list = ('avatar_url', 'title', 'location', 'datetime')
     column_formatters = {'avatar_url': macro('preview_avatar')}
@@ -162,7 +162,7 @@ class ProjectModelView(ModelView):
             model.id = form.title.data.lower().replace(' ', '-')
 
 admin.add_view(
-  ProjectModelView(Project, db.session, endpoint='projects', name='Projects')
+    ProjectModelView(Project, db.session, endpoint='projects', name='Projects')
 )
 
 
@@ -222,16 +222,16 @@ class GetFlickrView(BaseView):
         if form.validate_on_submit():
             get_flickr_images(form.data['album_id'], form.data['project_id'])
             flash('Succesffully added images to {project_id}'.format(
-              project_id=form.data['project_id'])
+                project_id=form.data['project_id'])
             )
         return self.render('admin/get_flickr.html', form=form)
 
 admin.add_view(
-  GetFlickrView(
-    name='Get Flickr Content',
-    url='get_flickr',
-    category='Grab Content'
-  )
+    GetFlickrView(
+        name='Get Flickr Content',
+        url='get_flickr',
+        category='Grab Content'
+    )
 )
 
 
@@ -241,17 +241,17 @@ class GetYoutubeView(BaseView):
         form = GetYoutubeForm(request.form)
         if form.validate_on_submit():
             get_youtube_videos(
-              form.data['video_urls'], form.data['project_id']
+                form.data['video_urls'], form.data['project_id']
             )
             flash('Succesffully added images to {project_id}'.format(
-              project_id=form.data['project_id'])
+                project_id=form.data['project_id'])
             )
         return self.render('admin/get_youtube.html', form=form)
 
 admin.add_view(
-  GetYoutubeView(
-    name='Get Youtube Content',
-    category='Grab Content',
-    url='get_youtube'
-  )
+    GetYoutubeView(
+        name='Get Youtube Content',
+        category='Grab Content',
+        url='get_youtube'
+    )
 )
