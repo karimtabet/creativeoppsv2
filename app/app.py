@@ -6,6 +6,7 @@ from flask.ext.mail import Mail
 from app.config import BaseConfig
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 app.config.from_object(BaseConfig)
 
 admin = Admin(app)
