@@ -205,6 +205,9 @@ class PolicyModelView(ModelView):
     form_overrides = {'body': CKTextAreaField, 'description': CKTextAreaField}
     column_formatters = {'body': macro('render_markdown')}
 
+    def on_model_change(self, form, model, is_created=False):
+        model.policy_uuid = uuid4()
+
 admin.add_view(
     PolicyModelView(
         Policy,

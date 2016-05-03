@@ -1,4 +1,3 @@
-from uuid import uuid4
 from datetime import datetime
 
 from sqlalchemy import MetaData, Column, String, DateTime, ForeignKey
@@ -99,7 +98,7 @@ class Video(Base):
 class Policy(Base):
     __tablename__ = 'policies'
 
-    policy_uuid = Column(UUID(as_uuid=True), primary_key=True, default=uuid4())
+    policy_uuid = Column(UUID(as_uuid=True), primary_key=True)
     heading = Column(String, nullable=False)
     body = Column(String, nullable=False)
 
